@@ -27,7 +27,7 @@ public class ShopManager : MonoBehaviour
     }
 
     public void ChangeScene() {
-      SceneManager.LoadScene(1);
+      SceneManager.LoadScene("Inventory");
     }
 
     public void loadPanels(){
@@ -37,14 +37,37 @@ public class ShopManager : MonoBehaviour
       }
     }
 
+    public void PurchaseItem(int btnNo){
+
+      if (CoinManager.playerCoins > shopItemSO[btnNo].price){
+        CoinManager.addCoins(-shopItemSO[btnNo].price);
+        coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
+        InventoryManager.addItems(shopItemSO[btnNo].title);
+        checkPurchasable();
+      }
+
+    }
+
     public void checkPurchasable(){
       for (int i =0; i < shopItemSO.Length; i++){
+
         if (CoinManager.playerCoins > shopItemSO[i].price){
-          // Buy
           purchaseButtons[i].interactable = true;
         }else{
           purchaseButtons[i].interactable = false;
         }
+
+        if (InventoryManager.purchasedItems != null){
+          for (int j = 0; j < InventoryManager.purchasedItems.Length; j++) {
+            if (shopItemSO[i].title == InventoryManager.purchasedItems[j]) {
+              purchaseButtons[i].interactable = false;
+              TMP_Text buttonText = purchaseButtons[i].GetComponentInChildren<TMP_Text>();
+              buttonText.text = "Already Purchased";
+            }
+          }
+        }
+
+
       }
     }
 
