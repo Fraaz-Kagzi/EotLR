@@ -575,6 +575,7 @@ MonoBehaviour:
   equipButtons:
   - {fileID: 998119848}
   - {fileID: 330572825}
+  isEquipped: 
 --- !u!1 &550088572
 GameObject:
   m_ObjectHideFlags: 0

@@ -13,16 +13,16 @@ public class WeaponManager : MonoBehaviour
     {
         Debug.Log("Gun is " + guns);
     }
-    
+
     public void LoadWeapon()
     {
         for(int i= 0; i<guns.Length; i++){
-            if(guns[i].name ==  "assault")
+            if(guns[i].name ==  InventoryManager.equipedWeapon)
             {
                 guns[i].SetActive(true);
             }
 
         }
-        
+
     }
 }

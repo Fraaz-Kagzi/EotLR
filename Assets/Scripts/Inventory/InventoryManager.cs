@@ -12,10 +12,11 @@ public class InventoryManager : MonoBehaviour
     public static string equipedWeapon;
     public InventoryItem[] items;
     public Button[] equipButtons;
+    public bool[] isEquipped;
 
     // Start is called before the first frame update
     void Start(){
-
+      isEquipped = new bool[equipButtons.Length];
       if (purchasedItems != null) {
         for (int i = 0; i < purchasedItems.Length; i++) {
             items[i].gameObject.SetActive(true);
@@ -28,15 +29,16 @@ public class InventoryManager : MonoBehaviour
 
       TMP_Text buttonText = equipButtons[btnNum].GetComponentInChildren<TMP_Text>();
 
-      if (buttonText.text != "Equip"){
-        buttonText.text = "Equip";
-        equipedWeapon = null;
-      }
-
-      if (buttonText.text == "Unequip"){
+      if (isEquipped[btnNum] == false){
         buttonText.text = "Unequip";
         equipedWeapon = purchasedItems[btnNum];
+        isEquipped[btnNum] = true;
+      }else{
+        buttonText.text = "Equip";
+        equipedWeapon = null;
+        isEquipped[btnNum] = false;
       }
+
     }
 
 
@@ -50,6 +52,7 @@ public class InventoryManager : MonoBehaviour
 
     public void showItems(){
       for (int i = 0; i < purchasedItems.Length; i++){
+
         items[i].name.text = purchasedItems[i];
       }
     }

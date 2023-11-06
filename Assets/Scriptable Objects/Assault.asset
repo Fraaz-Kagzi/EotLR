@@ -12,5 +12,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03258f4c187984b3a9bcddf377cfeadc, type: 3}
   m_Name: Assault
   m_EditorClassIdentifier: 
-  title: Assault
-  price: 200
+  title: assault
+  price: 250
