@@ -27,7 +27,8 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        realmGold=coinManager.playerCoins;
+        int coins = CoinManager.playerCoins;
+        realmGold=coins;
         currentHealth = maxHealth;
     }
     private void Update(){
@@ -60,8 +61,9 @@ public class Player : MonoBehaviour
     }
 
     public void addRealmGold(int value){
-        coinManager.addCoins(value);
-        realmGold=coinManager.playerCoins;
+        CoinManager.addCoins(value);
+        int coins = CoinManager.playerCoins;
+        realmGold=coins;
     }
 
 

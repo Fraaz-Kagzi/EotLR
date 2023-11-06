@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+   public CoinManager coinManager;
     public Player player;
     //enemy stats
     public int health = 100;
@@ -44,6 +45,7 @@ public class Enemy : MonoBehaviour
             gameObject.SetActive(false);
 
             // Re-enable the enemy after a delay
+            //coinManager.addCoins(value);
             player.addRealmGold(value);
             Invoke("Respawn", 2f);
         }
