@@ -9,6 +9,8 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public static int maxHealth = 250;
+    public CoinManager coinManager;
+
 
     public  int realmGold;
     public static int stamina = 100;
@@ -25,7 +27,7 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
-        realmGold=0;
+        realmGold=coinManager.playerCoins;
         currentHealth = maxHealth;
     }
     private void Update(){
@@ -58,7 +60,8 @@ public class Player : MonoBehaviour
     }
 
     public void addRealmGold(int value){
-        realmGold+= value;
+        coinManager.addCoins(value);
+        realmGold=coinManager.playerCoins;
     }
 
 
