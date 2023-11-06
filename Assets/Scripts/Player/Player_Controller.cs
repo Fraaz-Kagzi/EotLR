@@ -138,7 +138,7 @@ public class Player_Controller : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             hasPistol = !hasPistol; // Toggle the crouch state.
-            animator.SetBool("hasPistol", hasPistol);
+            //animator.SetBool("hasPistol", hasPistol);
         }
     }
 

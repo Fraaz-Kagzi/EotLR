@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -428,6 +429,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -787,6 +789,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -1269,6 +1272,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -1480,12 +1484,12 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 705507993}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: df20b5713be3b4ccfb095e1f64c3fea0, type: 3}
+  m_Script: {fileID: 11500000, guid: 5a4f01eee45ad496fa7025091cc34271, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  shopSceneName: Shop
+  inventorySceneName: Inventory
 --- !u!1 &706765666
 GameObject:
   m_ObjectHideFlags: 0
@@ -13241,6 +13245,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -14193,6 +14198,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -14471,6 +14477,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -15412,7 +15419,7 @@ MonoBehaviour:
   spread: 0
   range: 50
   reloadTime: 1.5
-  timeBetweenShots: 0.4
+  timeBetweenShots: 0.3
   allowButtonHold: 1
   fpsCam: {fileID: 1147754476}
   attackPoint: {fileID: 1758780542}
@@ -15981,6 +15988,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -16280,6 +16288,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1e02d7322a9473ba2fe7ba0120c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   realmGold: 0
   healthBar: {fileID: 939069226}
   text: {fileID: 1781961439}
@@ -17206,6 +17215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100
@@ -17797,6 +17807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 1686302596}
   health: 100
   maxHealth: 100

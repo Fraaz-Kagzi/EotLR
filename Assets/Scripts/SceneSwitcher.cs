@@ -5,31 +5,16 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public string shopSceneName = "ShopScene";
-
-    private bool inShopScene = false;
+    public string inventorySceneName = "Inventory"; // Name of your Inventory scene
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.P))
+        if (Input.GetKeyDown(KeyCode.I))
         {
-            if (!inShopScene)
-            {
-                SceneManager.LoadScene(shopSceneName, LoadSceneMode.Additive);
-                inShopScene = true;
-            }
-        
+            // Load the Inventory scene when 'I' is pressed.
+            SceneManager.LoadScene(inventorySceneName);
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
         }
-        if (Input.GetKeyDown(KeyCode.Escape)){
-            if(inShopScene)
-            {
-                SceneManager.UnloadSceneAsync(shopSceneName);
-                inShopScene = false;
-            }
-
-        }
-
-        
     }
 }
-
