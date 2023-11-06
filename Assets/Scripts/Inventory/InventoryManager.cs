@@ -27,7 +27,7 @@ public class InventoryManager : MonoBehaviour
     public void EquipButton(int btnNum){
 
       TMP_Text buttonText = equipButtons[btnNum].GetComponentInChildren<TMP_Text>();
-      Debug.Log(buttonText.text);
+
       if (buttonText.text != "Equip"){
         buttonText.text = "Equip";
         equipedWeapon = null;
@@ -42,6 +42,10 @@ public class InventoryManager : MonoBehaviour
 
     public void ShopScene() {
       SceneManager.LoadScene("Shop");
+    }
+
+    public void GameScene() {
+      SceneManager.LoadScene("SampleScene");
     }
 
     public void showItems(){
