@@ -6,6 +6,11 @@ public class Player_Controller : MonoBehaviour
 {
     public float moveSpeed = 3.0f;
     public float sensitivity = 2.0f; // Mouse sensitivity for looking
+    public float jumpForce = 8.0f;
+    public float gravity = 9.8f;
+    private float verticalVelocity = 0.0f;
+    private bool isJumping = false;
+
     private float normalMoveSpeed;
     private CharacterController controller;
     private Animator animator;
@@ -43,6 +48,27 @@ public class Player_Controller : MonoBehaviour
         Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
         moveDirection = transform.TransformDirection(moveDirection);
 
+
+        // Apply gravity continuously
+        if (controller.isGrounded)
+        {
+            verticalVelocity = -gravity * Time.deltaTime; // Reset vertical velocity when grounded.
+            if (Input.GetButtonDown("Jump"))
+            {
+                verticalVelocity = jumpForce;
+                isJumping = true;
+            }
+        }
+    
+        else
+        {
+            verticalVelocity -= gravity * Time.deltaTime; // Apply gravity when not grounded.
+        }
+
+        moveDirection = new Vector3(horizontalInput, verticalVelocity, verticalInput);
+        moveDirection = transform.TransformDirection(moveDirection);
+
+
         // Check if the "Shift" key is held down to sprint.
         if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
         {
@@ -62,7 +88,7 @@ public class Player_Controller : MonoBehaviour
         controller.Move(moveDirection * Time.deltaTime);
 
         // Check if the player is moving and set the "isMoving" parameter in the animator.
-        if (moveDirection.magnitude > 0.1f)
+        if (moveDirection.magnitude > 0.8f)
         {
             animator.SetBool("isMoving", true);
         }

@@ -7,5 +7,5 @@ using UnityEngine;
 public class ShopItemSO : ScriptableObject
 {
   public string title;
-  public string price;
+  public int price;
 }

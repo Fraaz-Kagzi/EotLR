@@ -4,12 +4,34 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    //enemy stats
     public int health = 100;
+    public int maxHealth = 100;
+
+    // value of each enemy CoinManager
+    
+    public EnemyHealthBar healthBar; // Reference to the health bar script
+
+    private void Awake()
+    {
+        healthBar = GetComponentInChildren<EnemyHealthBar>();
+    }
+    private void Start()
+    {
+
+        health = maxHealth;
+    }
+
+
+
+
 
     // Called when the enemy is shot
     public void TakeDamage(int damage)
     {
         health -= damage;
+        healthBar.UpdateHealthBar(health, maxHealth);
+        Debug.Log(health);
 
         if (health <= 0)
         {
@@ -21,6 +43,7 @@ public class Enemy : MonoBehaviour
             // Re-enable the enemy after a delay
             Invoke("Respawn", 2f);
         }
+        
     }
 
     // Called to respawn the enemy
@@ -28,6 +51,8 @@ public class Enemy : MonoBehaviour
     {
         // Reset health and reactivate the enemy
         health = 100;
+        healthBar.SetHealth(100, 100);
+        Debug.Log(health);
         gameObject.SetActive(true);
     }
 }

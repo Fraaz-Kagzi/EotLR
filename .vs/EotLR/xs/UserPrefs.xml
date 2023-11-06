@@ -1,23 +1,24 @@
 ﻿<Properties StartupConfiguration="{2FD8CE07-7E41-0FFB-A27C-F3E364EF8174}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Bullet.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player_Controller.cs" Line="12" Column="1" />
-      <File FileName="Assets/Plugins/Low Poly Guns/Scripts/GunView.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Gun.cs" Line="66" Column="43" />
-      <File FileName="Assets/Scripts/Enemy.cs" Line="29" Column="49" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="20" Column="28" IsPinned="True" />
+      <File FileName="Assets/Scripts/Player_Controller.cs" Line="91" Column="42" />
+      <File FileName="Assets/Scripts/Enemy.cs" Line="21" Column="6" />
+      <File FileName="Assets/Scripts/EnemyAiTutorial.cs" Line="29" Column="1" />
+      <File FileName="Assets/Scripts/Player/HealthBar.cs" Line="22" Column="1" />
+      <File FileName="Assets/Scripts/Player/Bullet.cs" Line="76" Column="48" />
+      <File FileName="Assets/Scripts/Player/Gun.cs" Line="39" Column="26" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EotLR" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Plugins" expanded="True">
-                <Node name="Low Poly Guns" expanded="True">
-                  <Node name="Scripts" expanded="True" />
-                </Node>
-              </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Enemy.cs" selected="True" />
+                <Node name="Enemy" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="Bullet.cs" selected="True" />
+                </Node>
               </Node>
             </Node>
           </Node>
@@ -27,7 +28,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="e152d22b-dbd4-49ef-b1fd-2d8283746fee" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="3bb6171d-7bfd-43a2-a474-915c045bcbd6" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>

@@ -4,9 +4,13 @@ using UnityEngine;
 using TMPro;
 public class Gun : MonoBehaviour
 {
+
+    public GameObject bullet;
+
+    public float shootForce, upwardForce;
     //Gun Specs
-    public int damage, magSize, bulletsPerTap;
-    public float fireRate, spread, range, reloadTime, timeBetweenShots;
+    public int magSize, bulletsPerTap;
+    public float fireRate,BetweenShooting, spread, range, reloadTime, timeBetweenShots;
     public bool allowButtonHold;
     int bulletsLeft, bulletsShot;
 
@@ -17,8 +21,10 @@ public class Gun : MonoBehaviour
     public Transform attackPoint;
     public RaycastHit RayHit;
     public Enemy enemy; // Drag and drop the enemy GameObject with the Enemy script attached in the Inspector.
+    public bool allowInvoke = true;
 
-    //public LayerMask WhatIsEnemy;
+
+    public LayerMask WhatIsEnemy;
 
     //Graphics
     public GameObject muzzleFlash, bulletHole;
@@ -34,7 +40,7 @@ public class Gun : MonoBehaviour
     {
         myInput();
         //text
-        text.SetText(bulletsLeft + " / " + magSize);
+        text.SetText(bulletsLeft/bulletsPerTap + " / " + magSize/bulletsPerTap);
     }
 
     private void myInput()
@@ -53,9 +59,9 @@ public class Gun : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
-        
 
-        if(Physics.Raycast(fpsCam.transform.position,fpsCam.transform.forward, out RayHit, range))//, WhatIsEnemy))
+
+        /*if(Physics.Raycast(fpsCam.transform.position,fpsCam.transform.forward, out RayHit, range))//, WhatIsEnemy))
         {
             Debug.Log(RayHit.collider.name);
             if (RayHit.collider.CompareTag("Enemy"))
@@ -66,18 +72,44 @@ public class Gun : MonoBehaviour
                     enemy.TakeDamage(damage);
                 }
             }
+        }*/
+
+        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0));
+        RaycastHit hit;
+
+        //check if hits something
+        Vector3 targetPoint;
+        if (Physics.Raycast(ray, out hit))
+        {
+            targetPoint = hit.point;
+           
         }
-        
+        else
+            targetPoint = ray.GetPoint(75);
+
+        Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
+
+        GameObject currentBullet = Instantiate(bullet, attackPoint.position, Quaternion.identity);
+        currentBullet.transform.forward = directionWithoutSpread.normalized;
+
+        currentBullet.GetComponent<Rigidbody>().AddForce(directionWithoutSpread.normalized * shootForce, ForceMode.Impulse);
+        currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
+
+
 
 
         //Graphics
-        Instantiate(bulletHole, RayHit.point, Quaternion.Euler(0, 180, 0));
+       // Instantiate(bulletHole, RayHit.point, Quaternion.Euler(0, 180, 0));
         Instantiate(muzzleFlash, attackPoint.position,Quaternion.identity);
 
         bulletsLeft--;
         bulletsShot--;
-
-        Invoke("ResetShot", timeBetweenShots);
+        if (allowInvoke)
+        {
+            Invoke("ResetShot", timeBetweenShots);
+            allowInvoke = false;
+        }
+      
         if(bulletsShot>0 && bulletsLeft>0)
         Invoke("Shoot", timeBetweenShots);
     }
@@ -85,6 +117,7 @@ public class Gun : MonoBehaviour
     private void ResetShot()
     {
         readyToShoot = true;
+        allowInvoke = true;
     }
     
 
