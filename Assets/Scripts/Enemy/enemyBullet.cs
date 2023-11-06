@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public int damageAmount = 10; // Adjust this as needed
+    public int damageAmount = 20; // Adjust this as needed
 
     private void OnCollisionEnter(Collision collision)
     {

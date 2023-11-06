@@ -4,11 +4,13 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
+    public Player player;
     //enemy stats
     public int health = 100;
     public int maxHealth = 100;
 
     // value of each enemy CoinManager
+    public int value;
     
     public EnemyHealthBar healthBar; // Reference to the health bar script
 
@@ -35,14 +37,17 @@ public class Enemy : MonoBehaviour
 
         if (health <= 0)
         {
+          
 
             Debug.Log("Enemy is destroyed!");
             // Enemy is "destroyed" by deactivating it
             gameObject.SetActive(false);
 
             // Re-enable the enemy after a delay
+            player.addRealmGold(value);
             Invoke("Respawn", 2f);
         }
+        Debug.Log(player.realmGold);
         
     }
 
