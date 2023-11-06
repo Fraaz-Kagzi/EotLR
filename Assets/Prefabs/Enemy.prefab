@@ -283,7 +283,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 42e26e838cb21e944aa7de2aae4edefc, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -369,8 +369,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: {fileID: 0}
   health: 100
   maxHealth: 100
+  value: 0
   healthBar: {fileID: 4961399996175724151}
 --- !u!195 &7031130974025623055
 NavMeshAgent:

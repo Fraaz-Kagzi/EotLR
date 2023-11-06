@@ -1,17 +1,21 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using TMPro;
 
 
 
 public class Player : MonoBehaviour
 {
-     public static int maxHealth = 250;
+    public static int maxHealth = 250;
+
+    public  int realmGold;
     public static int stamina = 100;
     public static int currentHealth;
     public Healthbar healthBar; // Reference to the health bar script
 
-    //stamina
+    public TextMeshProUGUI text;
 
     //currently equipped weapon
     public GameObject equippedWeapon;
@@ -21,7 +25,16 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        realmGold=0;
         currentHealth = maxHealth;
+    }
+    private void Update(){
+        text.SetText("RealmGold: §"+ realmGold);
+        if (realmGold == 1000)
+        {
+            // Load the "win" scene.
+            SceneManager.LoadScene("WinScene");
+        }
     }
 
     //health
@@ -44,11 +57,17 @@ public class Player : MonoBehaviour
         Time.timeScale = 0; // Pause time;
     }
 
+    public void addRealmGold(int value){
+        realmGold+= value;
+    }
+
 
     public static int getHealth()
     {
         return currentHealth;
     }
+
+
 
 
 }

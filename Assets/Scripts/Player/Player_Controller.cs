@@ -18,6 +18,24 @@ public class Player_Controller : MonoBehaviour
     private bool isCrouched = false;
     private bool hasPistol = false;
     private bool isSprinting = false;
+    //stamina
+  
+    public float sprintCost;
+    public float jumpCost;
+
+     public float maxStamina;
+    public float stam;
+
+    public float chargeRate;
+
+
+    private Coroutine recharge;
+
+    
+
+
+
+    public Stambar stambar;
 
     private float rotationX = 0.0f; // Rotation around the X-axis for looking
 
@@ -26,6 +44,7 @@ public class Player_Controller : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>(); // Assuming the Animator component is on the same GameObject as the script.
         normalMoveSpeed = moveSpeed; // Store the normal movement speed.
+        stam=maxStamina;
         
     }
 
@@ -53,10 +72,17 @@ public class Player_Controller : MonoBehaviour
         if (controller.isGrounded)
         {
             verticalVelocity = -gravity * Time.deltaTime; // Reset vertical velocity when grounded.
-            if (Input.GetButtonDown("Jump"))
+            if (Input.GetButtonDown("Jump") && stam > 0)
             {
                 verticalVelocity = jumpForce;
                 isJumping = true;
+                stam-=jumpCost;
+                if(stam<0)stam=0;
+                stambar.UpdateStamBar(stam,maxStamina);
+                 
+                if(recharge != null) StopCoroutine(recharge);
+                recharge=StartCoroutine(RechargeStam());
+                
             }
         }
     
@@ -70,11 +96,16 @@ public class Player_Controller : MonoBehaviour
 
 
         // Check if the "Shift" key is held down to sprint.
-        if (Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))
+        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))&& stam>0)
         {
             isSprinting = true;
             animator.SetBool("isSprinting", true);
             moveSpeed = normalMoveSpeed * 2.0f; // Double the movement speed.
+            stam-=sprintCost * Time.deltaTime;
+            if(stam<0)stam=0;
+            stambar.UpdateStamBar(stam,maxStamina);
+            if(recharge != null) StopCoroutine(recharge);
+            recharge=StartCoroutine(RechargeStam());
         }
         else
         {
@@ -109,5 +140,18 @@ public class Player_Controller : MonoBehaviour
             hasPistol = !hasPistol; // Toggle the crouch state.
             animator.SetBool("hasPistol", hasPistol);
         }
+    }
+
+    public IEnumerator RechargeStam(){
+        yield return new WaitForSeconds(1f);
+
+        while (stam < maxStamina)
+        {
+            stam += chargeRate/10f;
+            if(stam>maxStamina)stam=maxStamina;
+            stambar.UpdateStamBar(stam,maxStamina);
+            yield return new WaitForSeconds(1f);
+        }
+        
     }
 }

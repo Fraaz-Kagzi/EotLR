@@ -58,18 +58,20 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2023.1.15f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets/Scripts/Player/Stambar.cs" />
     <Compile Include="Assets/Scripts/Shop/CoinManager.cs" />
     <Compile Include="Assets/Scripts/Player/Bullet.cs" />
     <Compile Include="Assets/Scripts/Shop/ShopItemSO.cs" />
     <Compile Include="Assets/Scripts/Player/Gun.cs" />
     <Compile Include="Assets/Scripts/Enemy/enemyBullet.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyHealthBar.cs" />
+    <Compile Include="Assets/Scripts/SceneSwitcher.cs" />
     <Compile Include="Assets/Scripts/Enemy/Enemy.cs" />
     <Compile Include="Assets/Scripts/Player/FirstPersonCamera.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Player.cs" />
     <Compile Include="Assets/Scripts/Shop/ShopTemplate.cs" />
     <Compile Include="Assets/Scripts/Enemy/EnemyAi.cs" />
     <Compile Include="Assets/Scripts/Player/Player_Controller.cs" />
+    <Compile Include="Assets/Scripts/Player/Player.cs" />
     <Compile Include="Assets/Scripts/WeaponManager.cs" />
     <Compile Include="Assets/Scripts/Shop/ShopManager.cs" />
     <Compile Include="Assets/Scripts/Player/Healthbar.cs" />
