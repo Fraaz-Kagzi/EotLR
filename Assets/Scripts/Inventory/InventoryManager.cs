@@ -83,7 +83,7 @@ public class InventoryManager : MonoBehaviour
       bool found = false;
       for (int i = 0; i < equipedWeapons.Length; i++){
         if(equipedWeapons[i] != null){
-          SceneManager.LoadScene("Arena1");
+          SceneManager.LoadScene("SampleScene");
           found =  true;
         }
       }
