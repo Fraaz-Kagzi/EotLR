@@ -17,7 +17,7 @@ public class WeaponManager : MonoBehaviour
     public void LoadWeapon()
     {
         for(int i= 0; i<guns.Length; i++){
-            if(guns[i].name ==  InventoryManager.equipedWeapon)
+            if(guns[i].name ==  InventoryManager.equipedWeapons[0])
             {
                 guns[i].SetActive(true);
             }
