@@ -74,6 +74,7 @@
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
+    <None Include="Assets/Plugins/Toon Forest free set/sqript/custom3.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
@@ -83,9 +84,12 @@
     <None Include="Assets/Plugins/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
+    <None Include="Assets/Plugins/Toon Forest free set/sqript/custom.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
+    <None Include="Assets/Plugins/Toon Forest free set/Read me(En.Jp).txt" />
+    <None Include="Assets/Plugins/Toon Forest free set/sqript/custom2.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMPro.cginc" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
     <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Sprite.shader" />

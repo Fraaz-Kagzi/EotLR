@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneSwitcher : MonoBehaviour
 {
-    public string inventorySceneName = "Inventory"; // Name of your Inventory scene
+    public string inventorySceneName = "Shop"; // Name of your Inventory scene
 
     void Update()
     {
