@@ -11,7 +11,7 @@ public class WeaponManager : MonoBehaviour
     }
     private void Update()
     {
-        Debug.Log("Gun is " + guns);
+        //Debug.Log("Gun is " + guns);
     }
 
     public void LoadWeapon()

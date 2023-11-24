@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   title: smg
-  price: 20
+  price: 200

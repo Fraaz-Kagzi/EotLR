@@ -49,18 +49,31 @@ private void Explode()
 
     //Check for enemies 
     Collider[] enemies = Physics.OverlapSphere(transform.position, explosionRange, whatIsEnemies);
-    for (int i = 0; i < enemies.Length; i++)
-    {
-        //Get component of enemy and call Take Damage
+        for (int i = 0; i < enemies.Length; i++)
+        {
+            // Get the component of the collided object
+            Enemy enemyComponent = enemies[i].GetComponent<Enemy>();
+            Ork orkComponent = enemies[i].GetComponent<Ork>();
 
+            // Check if it's a general enemy and has the Enemy component
+            if (enemyComponent != null)
+            {
+                // Call TakeDamage on the Enemy component
+                enemyComponent.TakeDamage(explosionDamage);
+            }
+
+            // Check if it's an Ork enemy and has the Ork component
+            else if (orkComponent != null)
+            {
+                
+                orkComponent.TakeDamage(explosionDamage);
+                Debug.Log("Ork Hit!");
+            }
+        }
+
+        //Add a little delay, just to make sure everything works fine
+        Invoke("Delay", 0.05f);
         
-        enemies[i].GetComponent<Enemy>().TakeDamage(explosionDamage);
-
-      
-    }
-
-    //Add a little delay, just to make sure everything works fine
-    Invoke("Delay", 0.05f);
 }
 private void Delay()
 {

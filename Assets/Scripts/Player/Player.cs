@@ -33,11 +33,7 @@ public class Player : MonoBehaviour
     }
     private void Update(){
         text.SetText("RealmGold: §"+ realmGold);
-        if (realmGold == 1000)
-        {
-            // Load the "win" scene.
-            SceneManager.LoadScene("WinScene");
-        }
+       
     }
 
     //health

@@ -6,12 +6,13 @@ public class Enemy : MonoBehaviour
 {
    public CoinManager coinManager;
     public Player player;
+    public EnemySpawner spawner; // Reference to the spawner
     //enemy stats
     public int health = 100;
     public int maxHealth = 100;
 
     // value of each enemy CoinManager
-    public int value;
+    public int value= 50;
     
     public EnemyHealthBar healthBar; // Reference to the health bar script
 
@@ -42,12 +43,14 @@ public class Enemy : MonoBehaviour
 
             Debug.Log("Enemy is destroyed!");
             // Enemy is "destroyed" by deactivating it
-            gameObject.SetActive(false);
+            //gameObject.SetActive(false);
 
             // Re-enable the enemy after a delay
             //coinManager.addCoins(value);
+            
+            Invoke("delete",0f);
             player.addRealmGold(value);
-            Invoke("Respawn", 2f);
+           
         }
         Debug.Log(player.realmGold);
         
@@ -61,5 +64,12 @@ public class Enemy : MonoBehaviour
         healthBar.SetHealth(100, 100);
         Debug.Log(health);
         gameObject.SetActive(true);
+    }
+    void delete()
+    {
+        gameObject.SetActive(false);
+        Debug.Log("enemy killed");
+        spawner.EnemyKilled();
+        
     }
 }
