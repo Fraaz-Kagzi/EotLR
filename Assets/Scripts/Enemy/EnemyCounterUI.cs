@@ -12,7 +12,7 @@ public class EnemyCounterUI : MonoBehaviour
 
     private void Start()
     {
-        int remainingEnemies = 10; // Change this to the actual total number of enemies.
+        int remainingEnemies = 5; // Change this to the actual total number of enemies.
         UpdateEnemyCount(remainingEnemies);
     }
 

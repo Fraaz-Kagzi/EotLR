@@ -41,6 +41,12 @@ public class EnemyAi : MonoBehaviour
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
 
+        if (!agent.pathPending && agent.remainingDistance < 0.1f)
+        {
+            // Enemy has reached its destination, reset walkPointSet
+            walkPointSet = false;
+        }
+
         if (!playerInSightRange && !playerInAttackRange) Patroling();
         if (playerInSightRange && !playerInAttackRange) ChasePlayer();
         if (playerInAttackRange && playerInSightRange) AttackPlayer();
@@ -113,6 +119,7 @@ public class EnemyAi : MonoBehaviour
     {
         Destroy(gameObject);
     }
+
 
     private void OnDrawGizmosSelected()
     {

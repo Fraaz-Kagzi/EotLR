@@ -1,37 +1,35 @@
 ﻿<Properties StartupConfiguration="{2FD8CE07-7E41-0FFB-A27C-F3E364EF8174}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Player.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/EnemyCounterUI.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/HealthBar.cs" Line="22" Column="1" />
-      <File FileName="Assets/Scripts/Player/Bullet.cs" Line="73" Column="1" />
-      <File FileName="Assets/Scripts/Player/Gun.cs" Line="66" Column="14" />
-      <File FileName="Assets/Scripts/Enemy/Enemy.cs" Line="51" Column="33" />
-      <File FileName="Assets/Scripts/SceneSwitcher.cs" Line="13" Column="10" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="20" Column="33" />
+      <File FileName="Assets/Scripts/Player/Bullet.cs" />
+      <File FileName="Assets/Scripts/Player/Gun.cs" />
+      <File FileName="Assets/Scripts/Enemy/Enemy.cs" />
+      <File FileName="Assets/Scripts/SceneSwitcher.cs" />
+      <File FileName="Assets/Scripts/Player/Player.cs" />
       <File FileName="Assets/Scripts/Enemy/EnemyAi.cs" Line="61" Column="6" />
       <File FileName="Assets/Scripts/PlaneController.cs" />
-      <File FileName="Assets/Scripts/Inventory/InventoryManager.cs" Line="93" Column="8" />
-      <File FileName="Assets/Scripts/Enemy/Boss/Ork.cs" Line="126" Column="11" />
-      <File FileName="Assets/Scripts/Enemy/Boss/bossHealthBar.cs" Line="26" Column="2" />
-      <File FileName="Assets/Scripts/Enemy/Boss/GiantBoss.cs" Line="48" Column="76" />
-      <File FileName="Assets/Scripts/WeaponManager.cs" Line="14" Column="11" />
+      <File FileName="Assets/Scripts/Inventory/InventoryManager.cs" />
+      <File FileName="Assets/Scripts/Enemy/Boss/Ork.cs" Line="133" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/Boss/bossHealthBar.cs" />
+      <File FileName="Assets/Scripts/Enemy/Boss/GiantBoss.cs" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" />
       <File FileName="Assets/Scripts/Enemy/EnemyCounterUI.cs" Line="24" Column="55" />
-      <File FileName="Assets/Scripts/Enemy/EnemySpawner.cs" Line="11" Column="1" />
-      <File FileName="Assets/Scripts/CoinManager1.cs" Line="13" Column="6" />
-      <File FileName="Assets/Scripts/Player/FirstPersonCamera.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemySpawner.cs" />
+      <File FileName="Assets/Scripts/CoinManager1.cs" />
+      <File FileName="Assets/Scripts/Player/FirstPersonCamera.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EotLR" expanded="True">
-            <Node name="Assets" expanded="True">
+            <Node name="Assets" expanded="True" selected="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Enemy" expanded="True">
                   <Node name="Boss" expanded="True" />
                 </Node>
                 <Node name="Inventory" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="Player.cs" selected="True" />
-                </Node>
+                <Node name="Player" expanded="True" />
                 <Node name="Shop" expanded="True" />
               </Node>
             </Node>
@@ -42,7 +40,7 @@
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="c6fc3f02-9f6b-4b93-9d30-efb270775683" />
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="9ae51989-fee9-4e68-82ed-52963ad82d88" />
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
     <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
