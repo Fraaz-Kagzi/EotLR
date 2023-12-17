@@ -23,6 +23,7 @@ public class EnemyAi : MonoBehaviour
     public float timeBetweenAttacks;
     bool alreadyAttacked;
     public GameObject projectile;
+    public Transform bulletSpawnPoint;
 
     //States
     public float sightRange, attackRange;
@@ -34,6 +35,9 @@ public class EnemyAi : MonoBehaviour
         agent = GetComponent<NavMeshAgent>();
         agent.autoTraverseOffMeshLink = true; // Enable off-mesh link traversal
     }
+
+  
+    public PlayerCabinTrigger playerCabinTrigger;
 
     private void Update()
     {
@@ -47,10 +51,32 @@ public class EnemyAi : MonoBehaviour
             walkPointSet = false;
         }
 
-        if (!playerInSightRange && !playerInAttackRange) Patroling();
-        if (playerInSightRange && !playerInAttackRange) ChasePlayer();
-        if (playerInAttackRange && playerInSightRange) AttackPlayer();
+        // Check if the player is inside the cabin
+        bool playerInsideCabin = playerCabinTrigger != null && playerCabinTrigger.IsInsideCabin;
+
+        if (!playerInsideCabin)
+        {
+            // Player is not inside the cabin, continue with the regular behavior
+            if (!playerInSightRange && !playerInAttackRange)
+            {
+                Patroling();
+            }
+            else if (playerInSightRange && !playerInAttackRange)
+            {
+                ChasePlayer();
+            }
+            else if (playerInAttackRange && playerInSightRange)
+            {
+                AttackPlayer();
+            }
+        }
+        else
+        {
+            // Player is inside the cabin, so the beast remains in patrolling mode
+            Patroling();
+        }
     }
+
 
     private void Patroling()
     {
@@ -80,6 +106,7 @@ public class EnemyAi : MonoBehaviour
 
     private void ChasePlayer()
     {
+        
         agent.SetDestination(player.position);
     }
 
@@ -88,14 +115,15 @@ public class EnemyAi : MonoBehaviour
         // Make sure enemy doesn't move
         agent.SetDestination(transform.position);
 
-        transform.LookAt(player);
+        //transform.LookAt(player);
 
         if (!alreadyAttacked)
         {
             // Attack code here
-            Rigidbody rb = Instantiate(projectile, transform.position, Quaternion.identity).GetComponent<Rigidbody>();
+             Rigidbody rb = Instantiate(projectile, bulletSpawnPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+
             // End of attack code
 
             alreadyAttacked = true;
