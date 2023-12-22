@@ -45,6 +45,7 @@ private void Update()
 
 private void Explode()
 {
+        Debug.Log("Explode");
     
 
     //Check for enemies 
@@ -54,6 +55,8 @@ private void Explode()
             // Get the component of the collided object
             Enemy enemyComponent = enemies[i].GetComponent<Enemy>();
             Ork orkComponent = enemies[i].GetComponent<Ork>();
+            OrkClone orkCloneComponent = enemies[i].GetComponent<OrkClone>();
+            Shadowmancer shadowComponent = enemies[i].GetComponent<Shadowmancer>();
 
             // Check if it's a general enemy and has the Enemy component
             if (enemyComponent != null)
@@ -68,6 +71,18 @@ private void Explode()
                 
                 orkComponent.TakeDamage(explosionDamage);
                 Debug.Log("Ork Hit!");
+            }
+            else if (orkCloneComponent != null)
+            {
+
+                orkCloneComponent.TakeDamage(explosionDamage);
+                Debug.Log("Ork Clone Hit!");
+            }
+            else if (shadowComponent != null)
+            {
+
+                shadowComponent.TakeDamage(explosionDamage);
+                Debug.Log("Shadowmancer Hit!");
             }
         }
 
@@ -90,7 +105,10 @@ private void OnCollisionEnter(Collision collision)
 
     //Explode if bullet hits an enemy directly and explodeOnTouch is activated
     if (collision.collider.CompareTag("Enemy") && explodeOnTouch) Explode();
-}
+    else if (collision.collider.CompareTag("Ork") && explodeOnTouch) Explode();
+    else if (collision.collider.CompareTag("OrkClone") && explodeOnTouch) Explode();
+    else if (collision.collider.CompareTag("Shadowmancer") && explodeOnTouch) Explode();
+ }
 
 private void Setup()
 {

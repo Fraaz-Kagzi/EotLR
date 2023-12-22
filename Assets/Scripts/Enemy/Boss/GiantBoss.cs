@@ -127,10 +127,11 @@ private void AttackPlayer()
     //Make sure enemy doesn't move
     agent.SetDestination(transform.position);
 
-    transform.LookAt(player);
+    
 
     if (!alreadyAttacked)
     {
+            transform.LookAt(player);
             ///Attack code here
 			Invoke("Delay", 1.5f);
             PerformPhysicalAttack();

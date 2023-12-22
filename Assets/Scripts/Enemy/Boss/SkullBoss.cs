@@ -11,9 +11,13 @@ public class SkullBoss : MonoBehaviour
 
     public Transform player;
 
+    private Shadowmancer shadowScript;
+
     public LayerMask whatIsGround, whatIsPlayer;
 
     public float health;
+    public float bulletSpeed; // Adjust this value as needed
+
 
 
 
@@ -26,12 +30,20 @@ public class SkullBoss : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
+    bool alreadyLongAttacked;
+    bool alreadySpawned;
+    public GameObject OrgeBoss;
+
     public GameObject projectile;
+    public GameObject LongProjectile;
+    public int normalAttackCount = 0; // Counter for normal attacks
+    public int LongAttackCount = 0; // Counter for long attacks
+    public int spawnAttackCount = 0;
     public Transform bulletSpawnPoint;
 
     //States
-    public float sightRange, attackRange;
-    public bool playerInSightRange, playerInAttackRange;
+    public float sightRange, attackRange, physicalRange;
+    public bool playerInSightRange, playerInAttackRange, playerInPhysicalRange;
 
     private void Awake()
     {
@@ -49,6 +61,16 @@ public class SkullBoss : MonoBehaviour
         // Check for sight and attack range
         playerInSightRange = Physics.CheckSphere(transform.position, sightRange, whatIsPlayer);
         playerInAttackRange = Physics.CheckSphere(transform.position, attackRange, whatIsPlayer);
+        playerInPhysicalRange = Physics.CheckSphere(transform.position, physicalRange, whatIsPlayer);
+
+        if (shadowScript != null && shadowScript.health <= 0)
+        {
+
+            playerInAttackRange = true;
+            playerInSightRange = false;
+            agent.SetDestination(transform.position);
+            Debug.Log("dead");
+        }
 
         if (!agent.pathPending && agent.remainingDistance < 0.1f)
         {
@@ -63,21 +85,56 @@ public class SkullBoss : MonoBehaviour
             // Player is not inside the cabin, continue with the regular behavior
             if (!playerInSightRange && !playerInAttackRange)
             {
+                GetComponent<Animator>().SetBool("isPhysical", false);
                 GetComponent<Animator>().SetBool("isAttacking", false);
+                GetComponent<Animator>().SetBool("longAttack", false);
                 GetComponent<Animator>().SetBool("isMoving", true);
                 Patroling();
             }
+
+            else if (playerInSightRange && !playerInAttackRange && (LongAttackCount >= 3))
+            {
+                GetComponent<Animator>().SetBool("isPhysical", false);
+                GetComponent<Animator>().SetBool("isAttacking", false);
+                GetComponent<Animator>().SetBool("longAttack", false);
+                GetComponent<Animator>().SetBool("isMoving", true);
+                GetComponent<Animator>().SetBool("spawn", true);
+                Invoke("SpawnAttack", 4f);
+                //SpawnAttack();
+            }
             else if (playerInSightRange && !playerInAttackRange)
             {
+                GetComponent<Animator>().SetBool("isPhysical", false);
                 GetComponent<Animator>().SetBool("isAttacking", false);
+                GetComponent<Animator>().SetBool("longAttack", false);
                 GetComponent<Animator>().SetBool("isMoving", true);
+
                 ChasePlayer();
             }
-            else if (playerInAttackRange && playerInSightRange)
+            else if (playerInAttackRange && playerInSightRange && !playerInPhysicalRange && (normalAttackCount >= 12))
             {
+                
+                GetComponent<Animator>().SetBool("longAttack", true);
+                
+                SpecialAttack();
+                
+
+            }
+            else if (playerInAttackRange && playerInSightRange && !playerInPhysicalRange)
+            {
+                //GetComponent<Animator>().SetBool("longAttack", false);
                 GetComponent<Animator>().SetBool("isAttacking", true);
+                GetComponent<Animator>().SetBool("isPhysical", false);
                 AttackPlayer();
             }
+
+            else if (playerInAttackRange && playerInSightRange && playerInPhysicalRange)
+            {
+                GetComponent<Animator>().SetBool("isPhysical", true);
+                AttackPlayer();
+            }
+
+         
         }
         else
         {
@@ -131,19 +188,72 @@ public class SkullBoss : MonoBehaviour
             transform.LookAt(player);
             // Attack code here
             Rigidbody rb = Instantiate(projectile, bulletSpawnPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
-            rb.AddForce(transform.up * 5f, ForceMode.Impulse);
+            rb.AddForce(-transform.right * 6f, ForceMode.Impulse);
+            rb.AddForce(-transform.up * 5f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
+
+            //rb.AddForce(transform.left * 1f, ForceMode.Impulse);
+            //rb.AddForce(transform.down * 1f, ForceMode.Impulse);
+
+
 
             // End of attack code
 
+            normalAttackCount++;
+            Debug.Log(normalAttackCount);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
         }
     }
 
+
+    private void SpecialAttack()
+    {
+        Invoke("LongAttack", 3.2f);
+        // Make sure enemy doesn't move
+        
+        
+       
+        
+    }
+
+    private void SpawnAttack()
+    {
+
+        // Make sure enemy doesn't move
+        agent.SetDestination(transform.position);
+        if (!alreadySpawned)
+        {
+            // Instantiate the AI object
+            GameObject spawnedOrge = Instantiate(OrgeBoss, transform.position, Quaternion.identity);
+
+            // Activate the AI object (set it visible)
+            spawnedOrge.SetActive(true);
+
+            // Implement any other special attack logic here
+            Debug.Log("Spawn Attack!");
+
+            LongAttackCount = 0; // Reset the counter after performing the special attack
+            alreadySpawned = true;
+            Invoke(nameof(ResetAlreadySpawned), 10f);
+
+            GetComponent<Animator>().SetBool("spawn", false);
+        }
+    }
+
+
+
     private void ResetAttack()
     {
         alreadyAttacked = false;
+    }
+    private void ResetLongAttack()
+    {
+        alreadyLongAttacked = false;
+    }
+    private void ResetAlreadySpawned ()
+    {
+        alreadySpawned = false;
     }
 
     public void TakeDamage(int damage)
@@ -169,6 +279,48 @@ public class SkullBoss : MonoBehaviour
             }
         }
         return false;
+    }
+
+    void LongAttack()
+    {
+        agent.SetDestination(transform.position);
+
+        //
+        if (!alreadyLongAttacked)
+        {
+            transform.LookAt(player);
+            // Attack code here
+            Rigidbody rb = Instantiate(LongProjectile, bulletSpawnPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            rb.AddForce(-transform.right * 6f, ForceMode.Impulse);
+            rb.AddForce(-transform.up * 5f, ForceMode.Impulse);
+            rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
+            Debug.Log("big attack");
+
+            //rb.AddForce(transform.left * 1f, ForceMode.Impulse);
+            //rb.AddForce(transform.down * 1f, ForceMode.Impulse);
+
+
+
+            // End of attack code
+
+            LongAttackCount++;
+            Debug.Log("Special Attack!");
+            alreadyLongAttacked = true;
+            Invoke(nameof(ResetLongAttack), 5f);
+            // Implement your special attack logic here
+            // This can include a unique animation, effects, sound, etc.
+            normalAttackCount = 0; // Reset the counter after performing the special attack
+            GetComponent<Animator>().SetBool("longAttack", false);
+
+        }
+
+    }
+
+    void DelayedAction()
+    {
+        // Your code or action here
+        
+        Debug.Log("Delayed action executed!");
     }
 
 

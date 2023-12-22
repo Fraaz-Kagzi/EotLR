@@ -92,7 +92,7 @@ public class Ork : MonoBehaviour
         // Deactivate the enemy GameObject
         gameObject.SetActive(false);
         
-        Invoke("win", 3f);
+       
         
         
 
@@ -121,10 +121,7 @@ public class Ork : MonoBehaviour
             bossTitleText.enabled = isVisible;
         }
     }
-    private void win()
-    {
-       SceneManager.LoadScene("WinScene");// get rid after playtest!!!!!!!!!!!!!!!
-    }
+   
 
 
 
