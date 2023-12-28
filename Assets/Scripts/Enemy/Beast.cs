@@ -28,8 +28,7 @@ public class Beast : MonoBehaviour
     //Attacking
     public float timeBetweenAttacks;
     bool alreadyAttacked;
-    public GameObject projectile;
-    public Transform bulletSpawnPoint;
+   
     [SerializeField] public int damageAmount = 25; // Adjust this as needed
     
 

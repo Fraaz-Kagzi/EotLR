@@ -59,14 +59,20 @@ public class EnemyAi : MonoBehaviour
             // Player is not inside the cabin, continue with the regular behavior
             if (!playerInSightRange && !playerInAttackRange)
             {
+                GetComponent<Animator>().SetBool("isMoving", true);
+                GetComponent<Animator>().SetBool("isAttacking", false);
                 Patroling();
             }
             else if (playerInSightRange && !playerInAttackRange)
             {
+                GetComponent<Animator>().SetBool("isMoving", true);
+                GetComponent<Animator>().SetBool("isAttacking", false);
                 ChasePlayer();
             }
             else if (playerInAttackRange && playerInSightRange)
             {
+                
+                GetComponent<Animator>().SetBool("isAttacking", true);
                 AttackPlayer();
             }
         }
@@ -119,8 +125,9 @@ public class EnemyAi : MonoBehaviour
 
         if (!alreadyAttacked)
         {
+            transform.LookAt(player);
             // Attack code here
-             Rigidbody rb = Instantiate(projectile, bulletSpawnPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
+            Rigidbody rb = Instantiate(projectile, bulletSpawnPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
             rb.AddForce(transform.forward * 32f, ForceMode.Impulse);
             rb.AddForce(transform.up * 5f, ForceMode.Impulse);
 

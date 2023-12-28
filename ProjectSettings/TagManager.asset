@@ -12,6 +12,7 @@ TagManager:
   - Tower
   - OrkClone
   - Shadowmancer
+  - Guardian
   layers:
   - Default
   - TransparentFX

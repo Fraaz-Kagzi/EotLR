@@ -8,11 +8,11 @@ public class Enemy : MonoBehaviour
     public Player player;
     public EnemySpawner spawner; // Reference to the spawner
     //enemy stats
-    public int health = 100;
-    public int maxHealth = 100;
+    public int health;
+    public int maxHealth;
 
     // value of each enemy CoinManager
-    public int value= 50;
+    public int value;
     
     public EnemyHealthBar healthBar; // Reference to the health bar script
 
