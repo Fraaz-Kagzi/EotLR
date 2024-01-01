@@ -58,7 +58,6 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.1.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
     <Compile Include="Assets\Plugins\UnityTechnologies\EffectExamples\Shared\Scripts\DecalDestroyer.cs" />
     <Compile Include="Assets\Plugins\UnityTechnologies\EffectExamples\Shared\Scripts\GunShoot.cs" />
     <Compile Include="Assets\Plugins\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleCollision.cs" />
@@ -68,12 +67,14 @@
     <Compile Include="Assets\Plugins\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleMenu.cs" />
     <Compile Include="Assets\Plugins\UnityTechnologies\EffectExamples\Shared\Scripts\GunAim.cs" />
     <Compile Include="Assets\Plugins\UnityTechnologies\EffectExamples\Shared\Scripts\ParticleExamples.cs" />
+    <Compile Include="Assets\Plugins\fantasySpider\FSP_ContinuousRotation.cs" />
     <Compile Include="Assets\Plugins\UnityTechnologies\EffectExamples\TutorialInfo\Scripts\Readme.cs" />
     <Compile Include="Assets\Plugins\Low Poly Guns\Scripts\GunView.cs" />
     <Compile Include="Assets\Plugins\True_Fantastic_Creatures\Centaur\Centaur_ctrl.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\Plugins\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
+    <None Include="Assets\Plugins\FireIceProjectileExplosion\Shader\S_ParticleAdd.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\Plugins\Toon Forest free set 1\sqript\custom.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
@@ -109,60 +110,6 @@
     <None Include="Assets\Plugins\UnityTechnologies\EffectExamples\Shared\Shaders\SurfaceShader_VC.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Shaders\TMP_SDF-Surface-Mobile.shader" />
     <None Include="Assets\Plugins\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
-=======
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/DecalDestroyer.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/GunShoot.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ParticleCollision.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ExtinguishableFire.cs" />
-    <Compile Include="Assets/Plugins/Blink/Art/Animals/Stylized/Demo_Animals/DemoData/AnimationDemo.cs" />
-    <Compile Include="Assets/Plugins/Low Poly Guns/Scripts/GunsMenu.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ParticleMenu.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/GunAim.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ParticleExamples.cs" />
-    <Compile Include="Assets/Plugins/fantasySpider/FSP_ContinuousRotation.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/TutorialInfo/Scripts/Readme.cs" />
-    <Compile Include="Assets/Plugins/Low Poly Guns/Scripts/GunView.cs" />
-    <Compile Include="Assets/Plugins/True_Fantastic_Creatures/Centaur/Centaur_ctrl.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets/Plugins/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
-    <None Include="Assets/Plugins/FireIceProjectileExplosion/Shader/S_ParticleAdd.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
-    <None Include="Assets/Plugins/Toon Forest free set 1/sqript/custom.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets/Plugins/Toon Forest free set/sqript/custom3.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
-    <None Include="Assets/Plugins/Toon Forest free set 1/sqript/custom2.shader" />
-    <None Include="Assets/Plugins/Cabin/Terrain/Sky by Heiko Irrgang/README.txt" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
-    <None Include="Assets/Plugins/Toon Forest free set 1/sqript/custom3.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets/Plugins/Cabin/Terrain/Sky by Heiko Irrgang/LICENSE.txt" />
-    <None Include="Assets/Plugins/Cabin/Terrain/Textures by textures.com/README.txt" />
-    <None Include="Assets/Plugins/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
-    <None Include="Assets/Plugins/Toon Forest free set/sqript/custom.shader" />
-    <None Include="Assets/Plugins/True_Fantastic_Creatures/FC5_readme.txt" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
-    <None Include="Assets/Plugins/Toon Forest free set/Read me(En.Jp).txt" />
-    <None Include="Assets/Plugins/Toon Forest free set/sqript/custom2.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMPro.cginc" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
-    <None Include="Assets/Plugins/Toon Forest free set 1/Read me(En.Jp).txt" />
-    <None Include="Assets/Plugins/True_Fantastic_Creatures/Terrain_stuff/Standard_2s.shader" />
-    <None Include="Assets/Plugins/Ork berserker/materials/Standard_Two_Sided .shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_Sprite.shader" />
-    <None Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Shaders/SurfaceShader_VC.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets/Plugins/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -946,7 +893,7 @@
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>

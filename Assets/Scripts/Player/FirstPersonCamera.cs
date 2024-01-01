@@ -20,6 +20,7 @@ public class FirstPersonCamera : MonoBehaviour
 
     private void Update()
     {
+        
         // Get mouse input
         Vector2 mouseDelta = new Vector2(Input.GetAxisRaw("Mouse X"), Input.GetAxisRaw("Mouse Y"));
 
@@ -31,7 +32,7 @@ public class FirstPersonCamera : MonoBehaviour
 
         // Clamp the vertical rotation to prevent flipping
         mouseLook.y = Mathf.Clamp(mouseLook.y, -90f, 90f);
-
+        
         // Rotate the camera and the player
         transform.localRotation = Quaternion.AngleAxis(-mouseLook.y, Vector3.right);
         player.localRotation = Quaternion.AngleAxis(mouseLook.x, player.up);

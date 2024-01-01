@@ -58,18 +58,21 @@
     <Analyzer Include="C:\Program Files\Unity\Hub\Editor\2023.1.15f1\Editor\Data\Tools\Unity.SourceGenerators\Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-<<<<<<< Updated upstream
+    <Compile Include="Assets\Scripts\CanvasScript.cs" />
+    <Compile Include="Assets\Scripts\FoodItem.cs" />
     <Compile Include="Assets\Scripts\Player\Bullet.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemySpawner.cs" />
     <Compile Include="Assets\Scripts\Shop\ShopItemSO.cs" />
+    <Compile Include="Assets\Game Buffs\Free Stylized Textures\Scripts\GameBuffsInitializer.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\clones\OrkClone.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyHealthBar.cs" />
+    <Compile Include="Assets\Scripts\Enviroment\FrozenArea.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryItem.cs" />
+    <Compile Include="Assets\Scripts\HungerBar.cs" />
     <Compile Include="Assets\Scripts\Shop\ShopTemplate.cs" />
     <Compile Include="Assets\Scripts\volumecontroller.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyAi.cs" />
     <Compile Include="Assets\Scripts\Player\Player_Controller.cs" />
-    <Compile Include="Assets\Scripts\TableInteraction.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\bossHealthBar.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\dragon\DragonBoss.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyCounterUI.cs" />
@@ -79,31 +82,38 @@
     <Compile Include="Assets\Scripts\menu.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\warriorBeast\Cenataur.cs" />
     <Compile Include="Assets\Scripts\Player\Healthbar.cs" />
-    <Compile Include="Assets\Scripts\Player\PlayerCabinTrigger.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\sorcerer\Shadowmancer.cs" />
+    <Compile Include="Assets\Frost\FrostEffect.cs" />
     <Compile Include="Assets\Scripts\Player\Stambar.cs" />
     <Compile Include="Assets\Scripts\Player\Gun.cs" />
-    <Compile Include="Assets\fantasySpider\FSP_ContinuousRotation.cs" />
+    <Compile Include="Assets\Scripts\Enviroment\QuickSandArea.cs" />
+    <Compile Include="Assets\Scripts\wonMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy\enemyBullet.cs" />
+    <Compile Include="Assets\Scripts\Enviroment\cabin\TableInteraction.cs" />
+    <Compile Include="Assets\Scripts\Enviroment\cabin\BedInteraction.cs" />
+    <Compile Include="Assets\ResumeMenu.cs" />
     <Compile Include="Assets\Scripts\SceneSwitcher.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Enemy\Beast.cs" />
     <Compile Include="Assets\Scripts\Player\FirstPersonCamera.cs" />
+    <Compile Include="Assets\Scripts\Enviroment\Ice Arena\TimeAndDay.cs" />
+    <Compile Include="Assets\Scripts\CheckpointManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\giant\Ork.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\sorcerer\SkullBoss.cs" />
+    <Compile Include="Assets\Scripts\Hunger.cs" />
+    <Compile Include="Assets\Scripts\Enviroment\cabin\PlayerCabinTrigger.cs" />
     <Compile Include="Assets\Scripts\Inventory\InventoryManager.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\CoinManager1.cs" />
     <Compile Include="Assets\Scripts\WeaponManager.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\clones\GiantBossClone.cs" />
     <Compile Include="Assets\Scripts\Shop\ShopManager.cs" />
-    <Compile Include="Assets\Scripts\Ice Arena\TimeAndDay.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\giant\GiantBoss.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
+    <None Include="Assets\Frost\HowToUse.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets\FireIceProjectileExplosion\Shader\S_ParticleAdd.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Mobile.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF SSD.shader" />
@@ -111,94 +121,21 @@
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Surface.shader" />
     <None Include="Assets\TextMesh Pro\Sprites\EmojiOne Attribution.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Custom-Atlas.shader" />
+    <None Include="Assets\Game Buffs\Free Stylized Textures\README.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile SSD.shader" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Leading Characters.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Properties.cginc" />
     <None Include="Assets\TextMesh Pro\Shaders\TMPro_Surface.cginc" />
     <None Include="Assets\TextMesh Pro\Resources\LineBreaking Following Characters.txt" />
+    <None Include="Assets\Frost\ImageBlendEffect.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Masking.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF Overlay.shader" />
+    <None Include="Assets\Downtown Game Studio\Nature Pack - Low Polly Trees &amp; Bushes\Documentation.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Fonts\LiberationSans - OFL.txt" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile.shader" />
     <None Include="Assets\TextMesh Pro\Shaders\TMP_Sprite.shader" />
-=======
-    <Compile Include="Assets/Scripts/CanvasScript.cs" />
-    <Compile Include="Assets/Scripts/FoodItem.cs" />
-    <Compile Include="Assets/Scripts/Player/Bullet.cs" />
-    <Compile Include="Assets/Scripts/Enemy/EnemySpawner.cs" />
-    <Compile Include="Assets/Scripts/Shop/ShopItemSO.cs" />
-    <Compile Include="Assets/Game Buffs/Free Stylized Textures/Scripts/GameBuffsInitializer.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/clones/OrkClone.cs" />
-    <Compile Include="Assets/Scripts/Enemy/EnemyHealthBar.cs" />
-    <Compile Include="Assets/Scripts/Enviroment/FrozenArea.cs" />
-    <Compile Include="Assets/Scripts/Inventory/InventoryItem.cs" />
-    <Compile Include="Assets/Scripts/HungerBar.cs" />
-    <Compile Include="Assets/Scripts/Shop/ShopTemplate.cs" />
-    <Compile Include="Assets/Scripts/Enemy/EnemyAi.cs" />
-    <Compile Include="Assets/Scripts/Player/Player_Controller.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/bossHealthBar.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/dragon/DragonBoss.cs" />
-    <Compile Include="Assets/Scripts/Enemy/EnemyCounterUI.cs" />
-    <Compile Include="Assets/Scripts/PlaneController.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/dragon/Dragon.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/warriorBeast/Guardian.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/warriorBeast/Cenataur.cs" />
-    <Compile Include="Assets/Scripts/Player/Healthbar.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/sorcerer/Shadowmancer.cs" />
-    <Compile Include="Assets/Frost/FrostEffect.cs" />
-    <Compile Include="Assets/Scripts/Player/Stambar.cs" />
-    <Compile Include="Assets/Scripts/Player/Gun.cs" />
-    <Compile Include="Assets/Scripts/Enviroment/QuickSandArea.cs" />
-    <Compile Include="Assets/Scripts/Enemy/enemyBullet.cs" />
-    <Compile Include="Assets/Scripts/Enviroment/cabin/TableInteraction.cs" />
-    <Compile Include="Assets/Scripts/Enviroment/cabin/BedInteraction.cs" />
-    <Compile Include="Assets/Scripts/SceneSwitcher.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Enemy.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Beast.cs" />
-    <Compile Include="Assets/Scripts/Player/FirstPersonCamera.cs" />
-    <Compile Include="Assets/Scripts/Enviroment/Ice Arena/TimeAndDay.cs" />
-    <Compile Include="Assets/Scripts/CheckpointManager.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/giant/Ork.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/sorcerer/SkullBoss.cs" />
-    <Compile Include="Assets/Scripts/Hunger.cs" />
-    <Compile Include="Assets/Scripts/Enviroment/cabin/PlayerCabinTrigger.cs" />
-    <Compile Include="Assets/Scripts/Inventory/InventoryManager.cs" />
-    <Compile Include="Assets/Scripts/Player/Player.cs" />
-    <Compile Include="Assets/Scripts/CoinManager1.cs" />
-    <Compile Include="Assets/Scripts/WeaponManager.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/clones/GiantBossClone.cs" />
-    <Compile Include="Assets/Scripts/Shop/ShopManager.cs" />
-    <Compile Include="Assets/Scripts/Enemy/Boss/giant/GiantBoss.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro.cginc" />
-    <None Include="Assets/Frost/HowToUse.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Overlay.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Mobile.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF SSD.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Surface.shader" />
-    <None Include="Assets/TextMesh Pro/Sprites/EmojiOne Attribution.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Custom-Atlas.shader" />
-    <None Include="Assets/Game Buffs/Free Stylized Textures/README.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile SSD.shader" />
-    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Leading Characters.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Properties.cginc" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMPro_Surface.cginc" />
-    <None Include="Assets/TextMesh Pro/Resources/LineBreaking Following Characters.txt" />
-    <None Include="Assets/Frost/ImageBlendEffect.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile Masking.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF Overlay.shader" />
-    <None Include="Assets/Downtown Game Studio/Nature Pack - Low Polly Trees &amp; Bushes/Documentation.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Bitmap-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Fonts/LiberationSans - OFL.txt" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_SDF-Mobile.shader" />
-    <None Include="Assets/TextMesh Pro/Shaders/TMP_Sprite.shader" />
->>>>>>> Stashed changes
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
@@ -982,7 +919,7 @@
       <HintPath>Library\ScriptAssemblies\Unity.Postprocessing.Runtime.dll</HintPath>
     </Reference>
     <Reference Include="Unity.2D.Sprite.Editor">
-      <HintPath>Library/ScriptAssemblies/Unity.2D.Sprite.Editor.dll</HintPath>
+      <HintPath>Library\ScriptAssemblies\Unity.2D.Sprite.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.AI.Navigation.Editor.ConversionSystem">
       <HintPath>Library\ScriptAssemblies\Unity.AI.Navigation.Editor.ConversionSystem.dll</HintPath>
