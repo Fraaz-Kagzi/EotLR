@@ -28,6 +28,11 @@ public class Stambar : MonoBehaviour
         stamSlider.maxValue = maxStam;
     }
 
+    public void resetStam()
+    {
+        stamSlider.value = stamSlider.maxValue;
+    }
+
     
 }
 

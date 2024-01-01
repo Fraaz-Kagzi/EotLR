@@ -11,7 +11,7 @@ public class Player_Controller : MonoBehaviour
     private float verticalVelocity = 0.0f;
     private bool isJumping = false;
 
-    private float normalMoveSpeed;
+    public float normalMoveSpeed;
     private CharacterController controller;
     private Animator animator;
 
@@ -27,6 +27,7 @@ public class Player_Controller : MonoBehaviour
     public float stam;
 
     public float chargeRate;
+    public Player player;
 
 
     private Coroutine recharge;
@@ -44,7 +45,9 @@ public class Player_Controller : MonoBehaviour
         controller = GetComponent<CharacterController>();
         animator = GetComponent<Animator>(); // Assuming the Animator component is on the same GameObject as the script.
         normalMoveSpeed = moveSpeed; // Store the normal movement speed.
+        maxStamina = player.stamina;
         stam=maxStamina;
+        stambar.SetStam(maxStamina, maxStamina);
         
     }
 
@@ -129,17 +132,7 @@ public class Player_Controller : MonoBehaviour
         }
 
         // Check if the "C" key is pressed and set the "isCrouched" parameter in the animator.
-        if (Input.GetKeyDown(KeyCode.C))
-        {
-            isCrouched = !isCrouched; // Toggle the crouch state.
-            animator.SetBool("isCrouched", isCrouched);
-        }
-
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            hasPistol = !hasPistol; // Toggle the crouch state.
-            //animator.SetBool("hasPistol", hasPistol);
-        }
+        
     }
 
     public IEnumerator RechargeStam(){

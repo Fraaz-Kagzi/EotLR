@@ -65,7 +65,7 @@ public class Shadowmancer : MonoBehaviour
 
             // Re-enable the enemy after a delay
             //coinManager.addCoins(value);
-            player.addRealmGold(value);
+           
           
         }
 

@@ -2216,10 +2216,8 @@ MonoBehaviour:
   walkPointRange: 5
   initalSpeed: 10
   timeBetweenAttacks: 2
-  projectile: {fileID: 5672354129427065784, guid: 29ed3f5a5363d49d1905457f8bdc32ed, type: 3}
-  bulletSpawnPoint: {fileID: 6300274172815510976}
   damageAmount: 30
-  sightRange: 35
+  sightRange: 25
   attackRange: 3
   playerInSightRange: 0
   playerInAttackRange: 0
@@ -2332,6 +2330,7 @@ MonoBehaviour:
   coinManager: {fileID: 0}
   player: {fileID: 0}
   spawner: {fileID: 0}
+  itemToDropPrefab: {fileID: 0}
   health: 100
   maxHealth: 100
   value: 50

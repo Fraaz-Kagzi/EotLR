@@ -1,42 +1,47 @@
 ﻿<Properties StartupConfiguration="{2FD8CE07-7E41-0FFB-A27C-F3E364EF8174}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Boss/warriorBeast/Guardian.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Enemy.cs">
     <Files>
-      <File FileName="Assets/Scripts/Enemy/Boss/DragonBoss.cs" Line="114" Column="10" IsPinned="True" />
-      <File FileName="Assets/Scripts/Enemy/EnemySpawner.cs" Line="11" Column="1" IsPinned="True" />
-      <File FileName="Assets/Scripts/Enemy/Boss/Ork.cs" Line="96" Column="1" IsPinned="True" />
-      <File FileName="Assets/Scripts/Enemy/EnemyAi.cs" Line="87" Column="29" />
+      <File FileName="Assets/Scripts/HungerBar.cs" Line="29" Column="43" IsPinned="True" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="107" Column="75" IsPinned="True" />
       <File FileName="Assets/Scripts/Player/Bullet.cs" Line="111" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/enemyBullet.cs" />
-      <File FileName="Assets/Scripts/Player/PlayerCabinTrigger.cs" />
-      <File FileName="Assets/Scripts/Player/Player_Controller.cs" />
-      <File FileName="Assets/Scripts/TableInteraction.cs" />
-      <File FileName="Assets/Scripts/Enemy/Boss/Dragon.cs" Line="116" Column="10" />
-      <File FileName="Assets/Scripts/Enemy/Boss/GiantBoss.cs" Line="1" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/Boss/SkullBoss.cs" Line="39" Column="68" />
-      <File FileName="Assets/Scripts/Enemy/Beast.cs" Line="31" Column="4" />
-      <File FileName="Assets/Scripts/Enemy/Boss/Shadowmancer.cs" Line="68" Column="12" />
-      <File FileName="Assets/Scripts/Enemy/Boss/clones/OrkClone.cs" Line="12" Column="31" />
-      <File FileName="Assets/Scripts/Enemy/Boss/warriorBeast/Cenataur.cs" Line="67" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/Boss/warriorBeast/Ork.cs" Line="15" Column="30" />
-      <File FileName="Assets/Scripts/Enemy/Enemy.cs" Line="64" Column="39" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="17" Column="37" />
-      <File FileName="Assets/Scripts/CoinManager1.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/PlayerCabinTrigger.cs" Line="13" Column="36" />
+      <File FileName="Assets/Scripts/Player/Player_Controller.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/Canvas.cs" Line="9" Column="26" />
+      <File FileName="Assets/Scripts/Player/Stambar.cs" Line="10" Column="48" />
+      <File FileName="Assets/Scripts/Hunger.cs" Line="63" Column="31" />
+      <File FileName="Assets/Scripts/FoodItem.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/Enviroment/FrozenArea.cs" Line="50" Column="6" />
+      <File FileName="Assets/Scripts/TableInteraction.cs" Line="14" Column="10" />
+      <File FileName="Assets/Scripts/PlaneController.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/WeaponManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/CheckpointManager.cs" Line="19" Column="1" />
+      <File FileName="Assets/Scripts/Enviroment/cabin/BedInteraction.cs" Line="21" Column="1" />
+      <File FileName="Assets/Scripts/Enviroment/QuickSandArea.cs" Line="79" Column="34" />
+      <File FileName="Assets/Scripts/Enemy/Enemy.cs" Line="10" Column="40" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EotLR" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Frost" expanded="True" />
+              <Node name="Plugins" expanded="True">
+                <Node name="FireIceProjectileExplosion" expanded="True">
+                  <Node name="Shader" expanded="True" />
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
                 <Node name="Enemy" expanded="True">
                   <Node name="Boss" expanded="True">
                     <Node name="clones" expanded="True" />
                     <Node name="dragon" expanded="True" />
                     <Node name="sorcerer" expanded="True" />
-                    <Node name="warriorBeast" expanded="True">
-                      <Node name="Guardian.cs" selected="True" />
-                    </Node>
+                    <Node name="warriorBeast" expanded="True" />
                   </Node>
+                  <Node name="Enemy.cs" selected="True" />
+                </Node>
+                <Node name="Enviroment" expanded="True">
+                  <Node name="cabin" expanded="True" />
                 </Node>
                 <Node name="Inventory" expanded="True" />
                 <Node name="Player" expanded="True" />

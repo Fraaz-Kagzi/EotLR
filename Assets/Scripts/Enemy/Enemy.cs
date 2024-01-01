@@ -7,6 +7,7 @@ public class Enemy : MonoBehaviour
    public CoinManager coinManager;
     public Player player;
     public EnemySpawner spawner; // Reference to the spawner
+    public GameObject itemToDropPrefab;
     //enemy stats
     public int health;
     public int maxHealth;
@@ -50,7 +51,14 @@ public class Enemy : MonoBehaviour
             
             Invoke("delete",0f);
             player.addRealmGold(value);
-           
+            if (itemToDropPrefab != null)
+            {
+                // Instantiate the item at the enemy's position
+                GameObject droppedItem = Instantiate(itemToDropPrefab, transform.position, Quaternion.identity);
+
+                
+            }
+
         }
         Debug.Log(player.realmGold);
         

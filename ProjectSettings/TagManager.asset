@@ -13,6 +13,7 @@ TagManager:
   - OrkClone
   - Shadowmancer
   - Guardian
+  - Food
   layers:
   - Default
   - TransparentFX
@@ -25,7 +26,7 @@ TagManager:
   - WhatIsBullet
   - WhatisPlane
   - WhatisObsticle
-  - 
+  - WhatisObject
   - 
   - 
   - 
