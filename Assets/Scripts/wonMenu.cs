@@ -7,7 +7,7 @@ public class wonMenu : MonoBehaviour
 {
     public void replayGame()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 2);
+        SceneManager.LoadScene("SampleScene");
     }
 
     public void exitGame()
