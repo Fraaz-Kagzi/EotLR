@@ -98,6 +98,7 @@
     <Compile Include="Assets\Scripts\Player\FirstPersonCamera.cs" />
     <Compile Include="Assets\Scripts\Enviroment\Ice Arena\TimeAndDay.cs" />
     <Compile Include="Assets\Scripts\CheckpointManager.cs" />
+    <Compile Include="Assets\Scripts\respawnMenu.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\giant\Ork.cs" />
     <Compile Include="Assets\Scripts\Enemy\Boss\sorcerer\SkullBoss.cs" />
     <Compile Include="Assets\Scripts\Hunger.cs" />
