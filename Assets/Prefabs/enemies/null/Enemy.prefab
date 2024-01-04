@@ -232,6 +232,7 @@ GameObject:
   - component: {fileID: 4707844580439561182}
   - component: {fileID: 7031130974025623055}
   - component: {fileID: 6126950790069417876}
+  - component: {fileID: -8973313174939857353}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -353,10 +354,12 @@ MonoBehaviour:
   walkPointRange: 5
   timeBetweenAttacks: 0.5
   projectile: {fileID: 5672354129427065784, guid: 29ed3f5a5363d49d1905457f8bdc32ed, type: 3}
+  bulletSpawnPoint: {fileID: 266109286444527665}
   sightRange: 20
   attackRange: 12
   playerInSightRange: 0
   playerInAttackRange: 0
+  playerCabinTrigger: {fileID: 0}
 --- !u!114 &4707844580439561182
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -369,7 +372,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 717ce08b8e37b401aa038f217d4fd675, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  coinManager: {fileID: 0}
   player: {fileID: 0}
+  itemToDropPrefab: {fileID: 0}
   health: 100
   maxHealth: 100
   value: 0
@@ -423,6 +428,28 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!95 &-8973313174939857353
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6241667514265864514}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 504e6bd2bb2fa4c34a2ccf0aedfe3b75, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &6910827006852507419
 GameObject:
   m_ObjectHideFlags: 0

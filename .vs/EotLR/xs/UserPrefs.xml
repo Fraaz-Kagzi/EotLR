@@ -1,30 +1,38 @@
 ﻿<Properties StartupConfiguration="{2FD8CE07-7E41-0FFB-A27C-F3E364EF8174}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Enemy.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/Beast.cs">
     <Files>
       <File FileName="Assets/Scripts/HungerBar.cs" Line="29" Column="43" IsPinned="True" />
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="107" Column="75" IsPinned="True" />
+      <File FileName="Assets/Scripts/Player/Player.cs" Line="30" Column="5" IsPinned="True" />
+      <File FileName="Assets/Scripts/Armour.cs" Line="20" Column="39" />
       <File FileName="Assets/Scripts/Player/Bullet.cs" Line="111" Column="1" />
       <File FileName="Assets/Scripts/Player/PlayerCabinTrigger.cs" Line="13" Column="36" />
-      <File FileName="Assets/Scripts/Player/Player_Controller.cs" Line="13" Column="1" />
+      <File FileName="Assets/Scripts/Player/Player_Controller.cs" Line="111" Column="53" />
       <File FileName="Assets/Scripts/Canvas.cs" Line="9" Column="26" />
       <File FileName="Assets/Scripts/Player/Stambar.cs" Line="10" Column="48" />
-      <File FileName="Assets/Scripts/Hunger.cs" Line="63" Column="31" />
+      <File FileName="Assets/Scripts/Hunger.cs" Line="9" Column="36" />
       <File FileName="Assets/Scripts/FoodItem.cs" Line="10" Column="2" />
-      <File FileName="Assets/Scripts/Enviroment/FrozenArea.cs" Line="50" Column="6" />
+      <File FileName="Assets/Scripts/Enviroment/FrozenArea.cs" Line="136" Column="31" />
       <File FileName="Assets/Scripts/TableInteraction.cs" Line="14" Column="10" />
       <File FileName="Assets/Scripts/PlaneController.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/WeaponManager.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/CheckpointManager.cs" Line="19" Column="1" />
       <File FileName="Assets/Scripts/Enviroment/cabin/BedInteraction.cs" Line="21" Column="1" />
-      <File FileName="Assets/Scripts/Enviroment/QuickSandArea.cs" Line="79" Column="34" />
-      <File FileName="Assets/Scripts/Enemy/Enemy.cs" Line="10" Column="40" />
+      <File FileName="Assets/Scripts/Enviroment/QuickSandArea.cs" Line="26" Column="6" />
+      <File FileName="Assets/Scripts/Enemy/Enemy.cs" Line="54" Column="42" />
+      <File FileName="Assets/Scripts/wonMenu.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/Boss/sorcerer/Shadowmancer.cs" Line="129" Column="1" />
+      <File FileName="Assets/Scripts/Player/Gun.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/weapons/SniperScope.cs" Line="30" Column="28" />
+      <File FileName="Assets/Scripts/Shop/ShopManager.cs" Line="60" Column="54" />
+      <File FileName="Assets/Scripts/Inventory/InventoryManager.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/EnemyAi.cs" Line="148" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/Beast.cs" Line="1" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EotLR" expanded="True">
             <Node name="Assets" expanded="True">
-              <Node name="Frost" expanded="True" />
               <Node name="Plugins" expanded="True">
                 <Node name="FireIceProjectileExplosion" expanded="True">
                   <Node name="Shader" expanded="True" />
@@ -38,13 +46,16 @@
                     <Node name="sorcerer" expanded="True" />
                     <Node name="warriorBeast" expanded="True" />
                   </Node>
-                  <Node name="Enemy.cs" selected="True" />
+                  <Node name="Beast.cs" selected="True" />
                 </Node>
                 <Node name="Enviroment" expanded="True">
                   <Node name="cabin" expanded="True" />
                 </Node>
+                <Node name="game" expanded="True" />
                 <Node name="Inventory" expanded="True" />
-                <Node name="Player" expanded="True" />
+                <Node name="Player" expanded="True">
+                  <Node name="weapons" expanded="True" />
+                </Node>
                 <Node name="Shop" expanded="True" />
               </Node>
             </Node>

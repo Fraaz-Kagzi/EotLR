@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-using UnityEngine;
 using UnityEngine.AI;
 
 public class Beast : MonoBehaviour
@@ -73,6 +71,7 @@ public class Beast : MonoBehaviour
             }
             else if (playerInAttackRange && playerInSightRange)
             {
+                
                 GetComponent<Animator>().SetBool("isAttacking", true);
                 AttackPlayer();
             }
@@ -163,12 +162,7 @@ public class Beast : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
-    {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
+    
 
     private bool IsPlayerInsideAnyCabin()
     {
@@ -182,17 +176,5 @@ public class Beast : MonoBehaviour
         return false;
     }
 
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
-    }
+    
 }

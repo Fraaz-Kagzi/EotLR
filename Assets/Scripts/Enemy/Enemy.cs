@@ -6,7 +6,7 @@ public class Enemy : MonoBehaviour
 {
    public CoinManager coinManager;
     public Player player;
-    public EnemySpawner spawner; // Reference to the spawner
+    //public EnemySpawner spawner; // Reference to the spawner
     public GameObject itemToDropPrefab;
     //enemy stats
     public int health;
@@ -77,7 +77,7 @@ public class Enemy : MonoBehaviour
     {
         gameObject.SetActive(false);
         Debug.Log("enemy killed");
-        spawner.EnemyKilled();
+        //spawner.EnemyKilled();
         
     }
 }

@@ -132,7 +132,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
   m_LocalPosition: {x: 1341.25, y: -12.252411, z: -1470.9}
-  m_LocalScale: {x: 0.7, y: 0.7, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 6567717685583846082}
@@ -198,7 +198,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   coinManager: {fileID: 0}
   player: {fileID: 0}
-  spawner: {fileID: 0}
+  itemToDropPrefab: {fileID: 0}
   health: 100
   maxHealth: 100
   value: 15
@@ -226,14 +226,14 @@ MonoBehaviour:
   health: 0
   walkPoint: {x: 0, y: 0, z: 0}
   walkPointRange: 10
-  timeBetweenAttacks: 2
+  timeBetweenAttacks: 1
   projectile: {fileID: 5672354129427065784, guid: d8d06653c645e4572ab7b2303942e00a, type: 3}
   bulletSpawnPoint: {fileID: 6363383946428801699}
   sightRange: 40
   attackRange: 20
   playerInSightRange: 0
   playerInAttackRange: 0
-  playerCabinTrigger: {fileID: 0}
+  cabinTriggers: []
 --- !u!54 &5195871549293406986
 Rigidbody:
   m_ObjectHideFlags: 0

@@ -103,7 +103,7 @@ public class Player_Controller : MonoBehaviour
         {
             isSprinting = true;
             animator.SetBool("isSprinting", true);
-            moveSpeed = normalMoveSpeed * 2.0f; // Double the movement speed.
+            moveSpeed = normalMoveSpeed * 1.5f; // Double the movement speed.
             stam-=sprintCost * Time.deltaTime;
             if(stam<0)stam=0;
             stambar.UpdateStamBar(stam,maxStamina);

@@ -123,7 +123,7 @@ public class Shadowmancer : MonoBehaviour
     }
     private void win()
     {
-       SceneManager.LoadScene("WinScene");// get rid after playtest!!!!!!!!!!!!!!!
+       SceneManager.LoadScene("WinScenev2");
     }
 
 

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using System.Collections.Generic;
 using UnityEngine.AI;
 
 public class EnemyAi : MonoBehaviour
@@ -36,8 +37,10 @@ public class EnemyAi : MonoBehaviour
         agent.autoTraverseOffMeshLink = true; // Enable off-mesh link traversal
     }
 
-  
-    public PlayerCabinTrigger playerCabinTrigger;
+
+
+    public List<PlayerCabinTrigger> cabinTriggers = new List<PlayerCabinTrigger>();
+
 
     private void Update()
     {
@@ -52,9 +55,9 @@ public class EnemyAi : MonoBehaviour
         }
 
         // Check if the player is inside the cabin
-        bool playerInsideCabin = playerCabinTrigger != null && playerCabinTrigger.IsInsideCabin;
+        
 
-        if (!playerInsideCabin)
+        if (!IsPlayerInsideAnyCabin())
         {
             // Player is not inside the cabin, continue with the regular behavior
             if (!playerInSightRange && !playerInAttackRange)
@@ -143,24 +146,18 @@ public class EnemyAi : MonoBehaviour
         alreadyAttacked = false;
     }
 
-    public void TakeDamage(int damage)
+    
+
+
+    private bool IsPlayerInsideAnyCabin()
     {
-        health -= damage;
-
-        if (health <= 0) Invoke(nameof(DestroyEnemy), 0.5f);
-    }
-
-    private void DestroyEnemy()
-    {
-        Destroy(gameObject);
-    }
-
-
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, sightRange);
+        foreach (var cabinTrigger in cabinTriggers)
+        {
+            if (cabinTrigger.IsInsideCabin)
+            {
+                return true;
+            }
+        }
+        return false;
     }
 }

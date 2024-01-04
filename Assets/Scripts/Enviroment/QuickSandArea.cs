@@ -15,6 +15,7 @@ public class QuicksandArea : MonoBehaviour
     private float damageInterval = 1.0f; // Interval between damage ticks
     private float initialPlayerSpeed;
     public Player player;
+    public Armour armour;
     public Player_Controller PC;
 
     private void Awake()
@@ -25,9 +26,11 @@ public class QuicksandArea : MonoBehaviour
     }
     private void Update()
     {
-        if (playerInQuickSand)
+        if (!armour.isSandArmour)
         {
-            // Slow down the player over time
+            if (playerInQuickSand)
+            {
+                // Slow down the player over time
                 SlowdownPlayer();
 
                 // Check if the player has been in the area for 10 seconds
@@ -36,23 +39,29 @@ public class QuicksandArea : MonoBehaviour
                     // Apply damage to the player
                     DamagePlayer();
                 }
+            }
         }
+        
         
     }
 
     private void OnTriggerEnter(Collider other)
     {
+       
         if (other.CompareTag("Player"))
         {
-            player = other.GetComponent<Player>();
-            if (player != null)
+            if (!armour.isSandArmour)
             {
-                // Start the slowdown effect
-                slowdownTimer = 0f;
-                damageTimer = 0f;
-                timeInSand = 0f;
-                playerInQuickSand = true;
-                player.isSlowed = true;
+                player = other.GetComponent<Player>();
+                if (player != null)
+                {
+                    // Start the slowdown effect
+                    slowdownTimer = 0f;
+                    damageTimer = 0f;
+                    timeInSand = 0f;
+                    playerInQuickSand = true;
+                    player.isSlowed = true;
+                }
             }
         }
     }
@@ -63,15 +72,18 @@ public class QuicksandArea : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            if (player != null)
+            if (!armour.isSandArmour)
             {
-                // Reset the slowdown effect when the player exits the area
-                slowdownTimer = 0f;
-                damageTimer = 0f;
-                timeInSand = 0f;
-                playerInQuickSand = false;
-                player.resetSpeed(); // Reset player speed to normal
-                player.isSlowed = false;
+                if (player != null)
+                {
+                    // Reset the slowdown effect when the player exits the area
+                    slowdownTimer = 0f;
+                    damageTimer = 0f;
+                    timeInSand = 0f;
+                    playerInQuickSand = false;
+                    player.resetSpeed(); // Reset player speed to normal
+                    player.isSlowed = false;
+                }
             }
         }
     }
