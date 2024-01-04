@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class wonMenu : MonoBehaviour
+public class respawnMenu : MonoBehaviour
 {
-    public void replayGame()
+    public void respawnGame()
     {
         SceneManager.LoadScene("SampleScene");
-    }
-
-    public void exitGame()
-    {
-        Debug.Log("Quit is happening");
-        Application.Quit();
     }
 }
