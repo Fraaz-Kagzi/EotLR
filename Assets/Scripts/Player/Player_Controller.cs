@@ -28,6 +28,7 @@ public class Player_Controller : MonoBehaviour
 
     public float chargeRate;
     public Player player;
+    
 
 
     private Coroutine recharge;

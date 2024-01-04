@@ -17,8 +17,10 @@ public class InventoryManager : MonoBehaviour
 
     // Start is called before the first frame update
     void Start(){
-      isEquipped = new bool[equipButtons.Length];
-      if (purchasedItems != null) {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+        isEquipped = new bool[equipButtons.Length];
+        if (purchasedItems != null) {
         for (int i = 0; i < purchasedItems.Length; i++) {
             items[i].gameObject.SetActive(true);
         }

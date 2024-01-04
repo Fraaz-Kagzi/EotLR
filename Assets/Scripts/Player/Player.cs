@@ -9,7 +9,7 @@ using TMPro;
 public class Player : MonoBehaviour
 {
     public static int maxHealth = 250;
-    public CoinManager coinManager;
+    //public CoinManager coinManager;
 
     public float initialSpeed;
     public  int realmGold;
@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     public int maxStam;
     public  float freezeProtection = 100;
     public float hunger;
+    public bool interacting;
    
     public bool isSlowed;
     public bool isPoisoned;
@@ -27,6 +28,7 @@ public class Player : MonoBehaviour
     public Hunger Hungry;
     public HungerBar hb;
     public Stambar stambar;
+    
     
 
     public TextMeshProUGUI text;
@@ -43,6 +45,13 @@ public class Player : MonoBehaviour
 
     private void Start()
     {
+        Transform respawnPoint = CheckpointManager.GetRespawnPoint();
+        Debug.Log(respawnPoint);
+        if (respawnPoint != null)
+        {
+            transform.position = respawnPoint.position;
+            transform.rotation = respawnPoint.rotation;
+        }
         initialSpeed = pc.moveSpeed;
         int coins = CoinManager.playerCoins;
         realmGold=coins;
@@ -75,16 +84,9 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-
-        Transform respawnPoint = CheckpointManager.GetRespawnPoint();
-        
-        if (respawnPoint != null)
-        {
-            transform.position = respawnPoint.position;
-            transform.rotation = respawnPoint.rotation;
-        }
-        resetPlayer();
        
+        SceneManager.LoadScene("DeathScene");
+        resetPlayer();
     }
 
     public void addRealmGold(int value){

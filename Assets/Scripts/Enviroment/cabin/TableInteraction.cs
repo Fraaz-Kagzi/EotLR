@@ -7,7 +7,9 @@ public class TableInteraction : MonoBehaviour
     public float interactionRadius = 2f;
     public string inventorySceneName = "ActiveInventory";
     private Vector3 playerPositionBeforeInventory;
+    public Player player;
 
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.E))
@@ -17,6 +19,7 @@ public class TableInteraction : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.C))
         {
             ReturnFromInventory();
+            player.interacting = false;
         }
 
         // Set cursor visibility based on the current scene
@@ -40,6 +43,7 @@ public class TableInteraction : MonoBehaviour
             // Check if the player is near the table
             if (collider.CompareTag("Player"))
             {
+                player.interacting = true;
                 // Save the player's position before going to the inventory
                 playerPositionBeforeInventory = collider.transform.position;
 

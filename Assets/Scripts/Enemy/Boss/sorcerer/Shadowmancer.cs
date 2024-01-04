@@ -124,6 +124,7 @@ public class Shadowmancer : MonoBehaviour
     private void win()
     {
        SceneManager.LoadScene("WinScenev2");
+       
     }
 
 

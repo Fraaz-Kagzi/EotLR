@@ -9,12 +9,13 @@ public class Armour : MonoBehaviour
     public bool isSandArmour;
     public bool isFrostArmour;
     public bool isMovementArmour;
+    public float armourHealth;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        noArmour();
     }
 
     // Update is called once per frame
@@ -24,44 +25,54 @@ public class Armour : MonoBehaviour
     }
 
     public void noArmour() {
-        
+
+        isPoisonArmour = false;
+        isSandArmour = false;
+        isFrostArmour = false;
+        player.freezeProtection = 10;
+        isMovementArmour = false;
+        armourHealth = 0;
     }
 
     public void activatebaseFrostArmour()
     {
-        player.freezeProtection = 100;
-
-    }
-    public void deactivatebaseFrostArmour()
-    {
+        noArmour();
         player.freezeProtection = 100;
 
     }
     public void activateFrostArmour()
     {
+        noArmour();
         isFrostArmour = true;
 
     }
-    public void deactivateFrostArmour()
+
+    public void activatebaseArmour()
     {
-        isFrostArmour = false;
-
+        noArmour();
+        armourHealth = 50;
     }
-
+    public void activateArmour()
+    {
+        noArmour();
+        armourHealth = 150;
+    }
+   
     public void activateSandArmour()
     {
+        noArmour();
         isSandArmour = true;
     }
-    public void deactivateSandArmour()
-    {
-        isSandArmour = false;
-    }
+    
     public void activatePoisonArmour()
     {
+        noArmour();
         isPoisonArmour = true;
     }
-    public void deactivatePoisonArmour()
+
+
+    public void deactivateArmour()
     {
-        isPoisonArmour = false;
+        noArmour();
     }
 }
