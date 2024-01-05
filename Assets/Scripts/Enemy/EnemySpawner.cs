@@ -5,32 +5,37 @@ using UnityEngine;
 public class EnemySpawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
-    public EnemyCounterUI enemyCounter;
-    public GameObject bossPrefab; // Reference to the boss (Ork) prefab
-    public int totalEnemies = 10;
+    public int numberOfEnemiesToSpawn = 5;
+    public float spawnRange = 10f;
 
-    
-    
-
-    public void EnemyKilled()
+    void Start()
     {
-        totalEnemies--;
-        enemyCounter.UpdateEnemyCount(totalEnemies);
-
-
-
-
-        if (totalEnemies <= 0)
-        {
-            // Activate the boss (Ork)
-            
-            Invoke("ActivateBoss", 1f);
-        }
+        SpawnEnemies();
     }
 
-    void ActivateBoss()
+    void SpawnEnemies()
     {
-        bossPrefab.SetActive(true);
+        for (int i = 0; i < numberOfEnemiesToSpawn;)
+        {
+            // Generate random spawn position within the specified range
+            Vector3 randomSpawnPosition = new Vector3(
+                Random.Range(-spawnRange, spawnRange),
+                0f, // Assuming the ground is at Y = 0
+                Random.Range(-spawnRange, spawnRange)
+            );
 
+            // Raycast to ensure the spawn position is on the ground
+            RaycastHit hit;
+            if (Physics.Raycast(randomSpawnPosition + Vector3.up * 10f, Vector3.down, out hit, 100f, LayerMask.GetMask("Ground")))
+            {
+                randomSpawnPosition.y = hit.point.y;
+
+                // Instantiate the enemy at the valid spawn position
+                Instantiate(enemyPrefab, randomSpawnPosition, Quaternion.identity);
+
+                // Increment the counter only if the spawn was successful
+                i++;
+            }
+        }
     }
 }

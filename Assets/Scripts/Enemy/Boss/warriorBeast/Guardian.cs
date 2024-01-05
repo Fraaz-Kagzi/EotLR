@@ -14,6 +14,7 @@ public class Guardian : MonoBehaviour
     //enemy stats
     public int health = 1000;
     public int maxHealth = 1000;
+    public bool Defeated = false;
 
 
     // value of each enemy CoinManager
@@ -90,6 +91,7 @@ public class Guardian : MonoBehaviour
         }
 
         // Deactivate the enemy GameObject
+        Defeated = true;
         gameObject.SetActive(false);
         
        
