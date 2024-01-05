@@ -4,15 +4,22 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform player;
+    public Player player;
     public Ork Dessertboss;
     public Guardian Forestboss;
-    //public IceDragon Iceboss;;
+    public DragonBoss Iceboss;
+
+    public GameObject DessertOrk;
+    public GameObject ForestWarrior;
+    public GameObject IceDragon;
+    public GameObject ForestWall;
+    public GameObject IceWall;
     //public GameObject DessertTeleporter;
     //public GameObject TutorialArena;
     public GameObject DessertArena;
     public GameObject ForestArena;
     public GameObject IceArena;
+    public GameObject FinalArena;
 
 
     //public GameObject DessertTeleporter;
@@ -37,14 +44,48 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
-        OrkDefeated();
+        if (arena == 1)
+        {
+            if(player.bossKeys >= 2)
+            {
+                DessertOrk.SetActive(true);
+
+                player.bossKeys = 0;
+            }
+            OrkDefeated();
+        }
+        if (arena == 2)
+        {
+            if (player.bossKeys >= 2)
+            {
+                ForestWarrior.SetActive(true);
+                ForestWall.SetActive(false);
+                player.bossKeys = 0;
+            }
+            CentaurDefeated();
+        }
+        if (arena == 3)
+        {
+            if (player.bossKeys >= 2)
+            {
+                IceDragon.SetActive(true);
+                IceWall.SetActive(false);
+                player.bossKeys = 0;
+            }
+            DragonDefeated();
+        }
+
+
+        
+        
+        
     }
 
     public void isOrkDefeated()
     {
         if (Dessertboss.Defeated)
         {
-            Debug.Log("ORK is defeated!");
+            
             orkDefeated = true;
         }
     }
@@ -68,6 +109,7 @@ public class GameManager : MonoBehaviour
         isCentaurDefeated();
         if (centaurDefeated)
         {
+            
             IceArena.SetActive(true);
             IceTeleporter.SetActive(true);
             centaurDefeated = false;
@@ -82,11 +124,39 @@ public class GameManager : MonoBehaviour
     {
         if (Forestboss.Defeated)
         {
-            Debug.Log("centaur is defeated!");
+           
             centaurDefeated = true;
         }
     }
-    
+
+
+    public void DragonDefeated()
+    {
+        isDragonDefeated();
+        if (dragonDefeated)
+        {
+
+            FinalArena.SetActive(true);
+            FinalTeleporter.SetActive(true);
+            dragonDefeated = false;
+            if (arena != 3)
+            {
+                IceArena.SetActive(false);
+            }
+        }
+    }
+
+    public void isDragonDefeated()
+    {
+        if (Iceboss.Defeated)
+        {
+            
+
+            dragonDefeated = true;
+        }
+        
+    }
+
 
 
 }

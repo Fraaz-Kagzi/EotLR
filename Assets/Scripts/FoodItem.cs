@@ -7,4 +7,5 @@ public class FoodItem : MonoBehaviour
 {
     public int foodValue; // Adjust the value as needed
     public bool isPoisonous;
+    public bool isKey;
 }

@@ -6,7 +6,7 @@ public class Teleport : MonoBehaviour
 {
     public GameManager gm;
     public int nextArena;
-    public Transform forestArena; // Reference to the Forest Arena transform
+    public Transform teleport; // Reference to the Forest Arena transform
 
     private void OnTriggerEnter(Collider other)
     {
@@ -14,8 +14,9 @@ public class Teleport : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             // Teleport the player to the forestArena position
-            other.transform.position = forestArena.position;
+            other.transform.position = teleport.position;
             gm.arena = nextArena;
+            Debug.Log(other.transform.position);
         }
     }
 }

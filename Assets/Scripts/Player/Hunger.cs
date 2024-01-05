@@ -35,7 +35,7 @@ public class Hunger : MonoBehaviour
 
         if (player.hunger == 0)
         {
-            player.TakeDamage(2);
+            player.TakeDamage(1);
         }
     }
 
@@ -54,6 +54,11 @@ public class Hunger : MonoBehaviour
         {
             player.isPoisoned = true;
             StartCoroutine(ApplyPoisonDamage());
+        }
+        if (foodItem.isKey)
+        {
+
+            addKey();
         }
     }
 
@@ -74,8 +79,13 @@ public class Hunger : MonoBehaviour
         player.isPoisoned = false;
     }
 
+    private void addKey()
+    {
+        player.bossKeys = player.bossKeys + 1;
+    }
 
-    public void resetHunger()
+
+        public void resetHunger()
     {
         player.hunger = maxHunger;
         hungerBar.resetHunger();

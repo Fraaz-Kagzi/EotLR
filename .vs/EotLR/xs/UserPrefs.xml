@@ -1,11 +1,11 @@
 ﻿<Properties StartupConfiguration="{2FD8CE07-7E41-0FFB-A27C-F3E364EF8174}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enemy/EnemySpawner.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/Hunger.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/Player.cs" Line="75" Column="34" IsPinned="True" />
       <File FileName="Assets/Scripts/Armour.cs" />
       <File FileName="Assets/Scripts/Player/Player_Controller.cs" />
       <File FileName="Assets/Scripts/Player/Stambar.cs" />
-      <File FileName="Assets/Scripts/FoodItem.cs" />
+      <File FileName="Assets/Scripts/FoodItem.cs" Line="12" Column="1" />
       <File FileName="Assets/Scripts/Enviroment/FrozenArea.cs" />
       <File FileName="Assets/Scripts/Enviroment/cabin/BedInteraction.cs" />
       <File FileName="Assets/Scripts/Enviroment/QuickSandArea.cs" />
@@ -15,19 +15,22 @@
       <File FileName="Assets/Scripts/Shop/ShopManager.cs" />
       <File FileName="Assets/Scripts/Inventory/InventoryManager.cs" />
       <File FileName="Assets/Scripts/Enemy/EnemyAi.cs" />
-      <File FileName="Assets/Scripts/Enemy/Beast.cs" />
+      <File FileName="Assets/Scripts/Enemy/Beast.cs" Line="126" Column="18" />
       <File FileName="Assets/Scripts/respawnMenu.cs" />
       <File FileName="Assets/Scripts/Enemy/Boss/sorcerer/SkullBoss.cs" />
-      <File FileName="Assets/Scripts/Enviroment/cabin/TableInteraction.cs" />
+      <File FileName="Assets/Scripts/Enviroment/cabin/TableInteraction.cs" Line="22" Column="1" />
       <File FileName="Assets/Scripts/Inventory/InventoryItem.cs" />
       <File FileName="Assets/Scripts/Shop/ShopTemplate.cs" />
       <File FileName="Assets/Scripts/Shop/ShopItemSO.cs" />
-      <File FileName="Assets/Scripts/GameManager.cs" Line="75" Column="14" />
-      <File FileName="Assets/Scripts/Enemy/Boss/giant/Ork.cs" />
+      <File FileName="Assets/Scripts/GameManager.cs" Line="43" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/Boss/giant/Ork.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Enemy/Boss/giant/GiantBoss.cs" />
-      <File FileName="Assets/Scripts/teleport.cs" Line="22" Column="1" />
-      <File FileName="Assets/Scripts/Enemy/Boss/warriorBeast/Guardian.cs" Line="107" Column="38" />
-      <File FileName="Assets/Scripts/Enemy/EnemySpawner.cs" Line="3" Column="19" />
+      <File FileName="Assets/Scripts/teleport.cs" Line="23" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/Boss/warriorBeast/Guardian.cs" Line="10" Column="2" />
+      <File FileName="Assets/Scripts/Enemy/EnemySpawner.cs" Line="15" Column="1" />
+      <File FileName="Assets/Scripts/Player/weapons/Bullet.cs" Line="142" Column="2" />
+      <File FileName="Assets/Scripts/Enemy/Boss/dragon/DragonBoss.cs" Line="6" Column="1" />
+      <File FileName="Assets/Scripts/Player/Hunger.cs" Line="57" Column="10" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -36,7 +39,18 @@
             <Node name="Assets" expanded="True">
               <Node name="Scripts" expanded="True">
                 <Node name="Enemy" expanded="True">
-                  <Node name="EnemySpawner.cs" selected="True" />
+                  <Node name="Boss" expanded="True">
+                    <Node name="dragon" expanded="True" />
+                    <Node name="giant" expanded="True" />
+                    <Node name="warriorBeast" expanded="True" />
+                  </Node>
+                </Node>
+                <Node name="Enviroment" expanded="True">
+                  <Node name="cabin" expanded="True" />
+                </Node>
+                <Node name="Player" expanded="True">
+                  <Node name="weapons" expanded="True" />
+                  <Node name="Hunger.cs" selected="True" />
                 </Node>
               </Node>
             </Node>

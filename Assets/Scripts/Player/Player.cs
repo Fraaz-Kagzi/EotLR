@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     public bool isSlowed;
     public bool isPoisoned;
     public  int currentHealth;
+    public int bossKeys = 0;
 
     //UI
     public Healthbar healthBar; // Reference to the health bar script
