@@ -41,7 +41,7 @@ public class ShopManager : MonoBehaviour
     public void PurchaseItem(int btnNo){
 
       if (InventoryManager.IncludesItem(shopItemSO[btnNo])){
-
+        // Refund Item
         CoinManager.addCoins(shopItemSO[btnNo].price);
         coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
         InventoryManager.removeItem(shopItemSO[btnNo]);

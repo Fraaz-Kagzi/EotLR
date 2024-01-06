@@ -12,12 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03258f4c187984b3a9bcddf377cfeadc, type: 3}
   m_Name: SandArmour
   m_EditorClassIdentifier: 
-<<<<<<< Updated upstream
-  title: SandArmour
-  price: 100
-=======
   title: Sand Armour
   description: This is Sand Armour
   type: armour
   price: 200
->>>>>>> Stashed changes
