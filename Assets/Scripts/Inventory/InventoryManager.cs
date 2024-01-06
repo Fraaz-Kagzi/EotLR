@@ -163,9 +163,33 @@ public class InventoryManager : MonoBehaviour
       }
     }
 
-    public static void removeItem(ShopItemSO itemName){
-      if (purchasedItems != null && purchasedItems.Length > 0){
-      }
+    public static void removeItem(ShopItemSO item){
+      int indexOfItemToRemove = -1;
+
+        for (int i = 0; i < purchasedItems.Length; i++)
+        {
+            if (purchasedItems[i] == item)
+            {
+                indexOfItemToRemove = i;
+                break;
+            }
+        }
+
+        if (indexOfItemToRemove != -1)
+        {
+            ShopItemSO[] newArray = new ShopItemSO[purchasedItems.Length - 1];
+
+            for (int i = 0, j = 0; i < purchasedItems.Length; i++)
+            {
+                if (i != indexOfItemToRemove)
+                {
+                    newArray[j] = purchasedItems[i];
+                    j++;
+                }
+            }
+
+            purchasedItems = newArray;
+        }
     }
 
 }
