@@ -43,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         buttonText.text = "Equip";
         
         if (purchasedItems[btnNum].type == "gun"){
-          removeEquipedWeapon(purchasedItems[btnNum].name);
+          removeEquipedWeapon(purchasedItems[btnNum].title);
         };
 
         if (purchasedItems[btnNum].type == "armour"){
@@ -57,6 +57,7 @@ public class InventoryManager : MonoBehaviour
         if (purchasedItems[btnNum].type == "gun"){
 
           foreach (string weapon in equipedWeapons){
+            Debug.Log(weapon);
             if (weapon == null){ 
               hasEmptySlot = true;
               }
@@ -65,7 +66,8 @@ public class InventoryManager : MonoBehaviour
           if(hasEmptySlot){
             buttonText.text = "Unequip";
             if (purchasedItems[btnNum].type == "gun"){
-              addEquipedWeapon(purchasedItems[btnNum].name);
+              addEquipedWeapon(purchasedItems[btnNum].title);
+              isEquipped[btnNum] = true; 
             };
           }else{
             alertMessageTextComponent.text = "You cannot equip more than 2 weapons";
@@ -76,8 +78,8 @@ public class InventoryManager : MonoBehaviour
         if (purchasedItems[btnNum].type == "armour"){
           buttonText.text = "Unequip";
           armour = purchasedItems[btnNum].name;
+          isEquipped[btnNum] = true; 
         }
-        isEquipped[btnNum] = true; 
       }
     }
 
@@ -166,30 +168,30 @@ public class InventoryManager : MonoBehaviour
     public static void removeItem(ShopItemSO item){
       int indexOfItemToRemove = -1;
 
-        for (int i = 0; i < purchasedItems.Length; i++)
-        {
-            if (purchasedItems[i] == item)
-            {
-                indexOfItemToRemove = i;
-                break;
-            }
-        }
+      for (int i = 0; i < purchasedItems.Length; i++)
+      {
+          if (purchasedItems[i] == item)
+          {
+              indexOfItemToRemove = i;
+              break;
+          }
+      }
 
-        if (indexOfItemToRemove != -1)
-        {
-            ShopItemSO[] newArray = new ShopItemSO[purchasedItems.Length - 1];
+      if (indexOfItemToRemove != -1)
+      {
+          ShopItemSO[] newArray = new ShopItemSO[purchasedItems.Length - 1];
 
-            for (int i = 0, j = 0; i < purchasedItems.Length; i++)
-            {
-                if (i != indexOfItemToRemove)
-                {
-                    newArray[j] = purchasedItems[i];
-                    j++;
-                }
-            }
+          for (int i = 0, j = 0; i < purchasedItems.Length; i++)
+          {
+              if (i != indexOfItemToRemove)
+              {
+                  newArray[j] = purchasedItems[i];
+                  j++;
+              }
+          }
 
-            purchasedItems = newArray;
-        }
+          purchasedItems = newArray;
+    }
     }
 
 }
