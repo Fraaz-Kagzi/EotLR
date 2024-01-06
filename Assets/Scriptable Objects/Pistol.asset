@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Pistol
   m_EditorClassIdentifier: 
   title: pistol
-  description: This is a pistol
+  description: This is a Short firearm for one hand usage
   type: gun
   price: 70
