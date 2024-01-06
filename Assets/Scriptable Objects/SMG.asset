@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: SMG
   m_EditorClassIdentifier: 
   title: smg
+  description: This is an smg
+  type: gun
   price: 200

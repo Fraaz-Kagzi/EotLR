@@ -1,4 +1,5 @@
 using System.Collections;
+using System;
 using System.Collections.Generic;
 using UnityEngine.SceneManagement;
 using UnityEngine;
@@ -8,9 +9,10 @@ using TMPro;
 public class InventoryManager : MonoBehaviour
 {
 
-    public static string[] purchasedItems;
+    public static ShopItemSO[] purchasedItems;
     public static string[] equipedWeapons = new string[] { null, null };
-    public InventoryItem[] items;
+    public static string armour;
+    public InventoryItem[] itemPanels;
     public Button[] equipButtons;
     public bool[] isEquipped;
     public GameObject alertMessage;
@@ -22,7 +24,7 @@ public class InventoryManager : MonoBehaviour
         isEquipped = new bool[equipButtons.Length];
         if (purchasedItems != null) {
         for (int i = 0; i < purchasedItems.Length; i++) {
-            items[i].gameObject.SetActive(true);
+            itemPanels[i].gameObject.SetActive(true);
         }
         showItems();
         displayEquipState();
@@ -33,22 +35,56 @@ public class InventoryManager : MonoBehaviour
 
       TMP_Text buttonText = equipButtons[btnNum].GetComponentInChildren<TMP_Text>();
 
+      TMP_Text alertMessageTextComponent = alertMessage.GetComponent<TMP_Text>();
 
-      if (isEquipped[btnNum] == false){
-        buttonText.text = "Unequip";
-        addEquipedWeapon(purchasedItems[btnNum]);
-        isEquipped[btnNum] = true;
-      }else{
+      bool hasEmptySlot = false;
+
+      if (isEquipped[btnNum] != false){
         buttonText.text = "Equip";
-        removeEquipedWeapon(purchasedItems[btnNum]);
+        
+        if (purchasedItems[btnNum].type == "gun"){
+          removeEquipedWeapon(purchasedItems[btnNum].name);
+        };
+
+        if (purchasedItems[btnNum].type == "armour"){
+          armour = null;
+        };
+
         isEquipped[btnNum] = false;
+
+      }else{
+
+        if (purchasedItems[btnNum].type == "gun"){
+
+          foreach (string weapon in equipedWeapons){
+            if (weapon == null){ 
+              hasEmptySlot = true;
+              }
+          }
+
+          if(hasEmptySlot){
+            buttonText.text = "Unequip";
+            if (purchasedItems[btnNum].type == "gun"){
+              addEquipedWeapon(purchasedItems[btnNum].name);
+            };
+          }else{
+            alertMessageTextComponent.text = "You cannot equip more than 2 weapons";
+            alertMessage.SetActive(true);
+          }       
+        } 
+
+        if (purchasedItems[btnNum].type == "armour"){
+          buttonText.text = "Unequip";
+          armour = purchasedItems[btnNum].name;
+        }
+        isEquipped[btnNum] = true; 
       }
     }
 
     public void displayEquipState(){
-      for (int i =0; i < items.Length; i++){
+      for (int i =0; i < itemPanels.Length; i++){
         for(int j=0; j < equipedWeapons.Length; j++){
-          if (equipedWeapons[j] == items[i].name.text){
+          if (equipedWeapons[j] == itemPanels[i].name.text){
             TMP_Text buttonText = equipButtons[i].GetComponentInChildren<TMP_Text>();
             buttonText.text = "Unequip";
             isEquipped[i] = true;
@@ -66,7 +102,6 @@ public class InventoryManager : MonoBehaviour
       }
     }
 
-
     public void removeEquipedWeapon(string itemName){
       for (int i = 0; i < equipedWeapons.Length; i++){
         if(equipedWeapons[i] == itemName){
@@ -75,7 +110,6 @@ public class InventoryManager : MonoBehaviour
         }
       }
     }
-
 
     public void ShopScene() {
       SceneManager.LoadScene("Shop");
@@ -89,7 +123,6 @@ public class InventoryManager : MonoBehaviour
           found =  true;
         }
       }
-
       if (found == false){
         alertMessage.SetActive(true);
       }
@@ -98,28 +131,41 @@ public class InventoryManager : MonoBehaviour
 
     public void showItems(){
       for (int i = 0; i < purchasedItems.Length; i++){
-
-        items[i].name.text = purchasedItems[i];
+        itemPanels[i].name.text = purchasedItems[i].title;
       }
     }
 
-    public static void addItems(string newItem)
-  {
-    if (purchasedItems == null)
-    {
-        purchasedItems = new string[] { newItem };
-    }
-    else
-    {
-        string[] newArray = new string[purchasedItems.Length + 1];
+   public static bool IncludesItem(ShopItemSO shopItem){
+      if (purchasedItems != null)
+      {
+          return Array.IndexOf(purchasedItems, shopItem) != -1;
+      }
 
-        for (int i = 0; i < purchasedItems.Length; i++)
-        {
-            newArray[i] = purchasedItems[i];
-        }
-
-        newArray[newArray.Length - 1] = newItem;
-        purchasedItems = newArray;
+      return false; 
     }
-}
+
+    public static void addItems(ShopItemSO newItem){
+      if (purchasedItems == null)
+      {
+          purchasedItems = new ShopItemSO[] { newItem };
+      }
+      else
+      {
+          ShopItemSO[] newArray = new ShopItemSO[purchasedItems.Length + 1];
+
+          for (int i = 0; i < purchasedItems.Length; i++)
+          {
+              newArray[i] = purchasedItems[i];
+          }
+
+          newArray[newArray.Length - 1] = newItem;
+          purchasedItems = newArray;
+      }
+    }
+
+    public static void removeItem(ShopItemSO itemName){
+      if (purchasedItems != null && purchasedItems.Length > 0){
+      }
+    }
+
 }

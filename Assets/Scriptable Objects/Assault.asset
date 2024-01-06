@@ -13,4 +13,6 @@ MonoBehaviour:
   m_Name: Assault
   m_EditorClassIdentifier: 
   title: assault
+  description: This is an assault rifle
+  type: gun
   price: 250

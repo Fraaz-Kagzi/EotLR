@@ -33,17 +33,27 @@ public class ShopManager : MonoBehaviour
     public void loadPanels(){
       for (int i = 0; i < shopItemSO.Length; i++){
         shopPanels[i].title.text = shopItemSO[i].title;
+        shopPanels[i].description.text = shopItemSO[i].description;
         shopPanels[i].priceTxt.text = "Coins: " + shopItemSO[i].price.ToString();
       }
     }
 
     public void PurchaseItem(int btnNo){
 
-      if (CoinManager.playerCoins > shopItemSO[btnNo].price){
-        CoinManager.addCoins(-shopItemSO[btnNo].price);
+      if (InventoryManager.IncludesItem(shopItemSO[btnNo])){
+
+        CoinManager.addCoins(shopItemSO[btnNo].price);
         coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
-        InventoryManager.addItems(shopItemSO[btnNo].title);
+        InventoryManager.removeItem(shopItemSO[btnNo]);
         checkPurchasable();
+      }else{
+        // Purchase Item
+        if (CoinManager.playerCoins > shopItemSO[btnNo].price){
+          CoinManager.addCoins(-shopItemSO[btnNo].price);
+          coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
+          InventoryManager.addItems(shopItemSO[btnNo]);
+          checkPurchasable();
+        }
       }
 
     }
@@ -51,23 +61,14 @@ public class ShopManager : MonoBehaviour
     public void checkPurchasable(){
       for (int i =0; i < shopItemSO.Length; i++){
 
-        if (CoinManager.playerCoins > shopItemSO[i].price){
-          purchaseButtons[i].interactable = true;
-        }else{
-          purchaseButtons[i].interactable = false;
-        }
-
-        if (InventoryManager.purchasedItems != null){
-          for (int j = 0; j < InventoryManager.purchasedItems.Length; j++) {
-            if (shopItemSO[i].title == InventoryManager.purchasedItems[j]) {
-              purchaseButtons[i].interactable = false;
-              TMP_Text buttonText = purchaseButtons[i].GetComponentInChildren<TMP_Text>();
-              buttonText.text = "Already Purchased";
-            }
+          if (InventoryManager.IncludesItem(shopItemSO[i])) {
+            TMP_Text buttonText = purchaseButtons[i].GetComponentInChildren<TMP_Text>();
+            buttonText.text = "Refund " + shopItemSO[i].price;
+          }else{
+            TMP_Text buttonText = purchaseButtons[i].GetComponentInChildren<TMP_Text>();
+            buttonText.text = "Purchase";
           }
-        }
-
-
+  
       }
     }
 
