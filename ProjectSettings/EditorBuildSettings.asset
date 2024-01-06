@@ -29,6 +29,12 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeathScene.unity
     guid: f214d2aa337d47143a2501743b5ace8b
+  - enabled: 1
+    path: Assets/Scenes/ActiveInventory.unity
+    guid: 220cfe9a52cb3459682af439150cbfa4
+  - enabled: 1
+    path: Assets/Scenes/ActiveShop.unity
+    guid: f338afcc4630642928e23da9aa3be6d4
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: dc65b0db9a6d54198b46a55d3fa6af69, type: 2}
   m_UseUCBPForAssetBundles: 0

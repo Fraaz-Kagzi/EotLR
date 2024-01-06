@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -36,6 +37,7 @@ public class GameManager : MonoBehaviour
 
     void Start()
     {
+
         if (player == null || Dessertboss == null || ForestTeleporter == null)
         {
             Debug.LogError("Player, Boss, or Next Arena Position not set in the GameManager!");
@@ -44,15 +46,17 @@ public class GameManager : MonoBehaviour
 
     void Update()
     {
+        
         if (arena == 1)
         {
             if(player.bossKeys >= 2)
             {
                 DessertOrk.SetActive(true);
+                OrkDefeated();
 
-                player.bossKeys = 0;
+
             }
-            OrkDefeated();
+            
         }
         if (arena == 2)
         {
@@ -60,9 +64,10 @@ public class GameManager : MonoBehaviour
             {
                 ForestWarrior.SetActive(true);
                 ForestWall.SetActive(false);
-                player.bossKeys = 0;
+                CentaurDefeated();
+
             }
-            CentaurDefeated();
+            
         }
         if (arena == 3)
         {
@@ -70,9 +75,10 @@ public class GameManager : MonoBehaviour
             {
                 IceDragon.SetActive(true);
                 IceWall.SetActive(false);
-                player.bossKeys = 0;
+                DragonDefeated();
+
             }
-            DragonDefeated();
+            
         }
 
 
@@ -87,6 +93,7 @@ public class GameManager : MonoBehaviour
         {
             
             orkDefeated = true;
+            player.bossKeys = 0;
         }
     }
     public void OrkDefeated()
@@ -126,6 +133,7 @@ public class GameManager : MonoBehaviour
         {
            
             centaurDefeated = true;
+            player.bossKeys = 0;
         }
     }
 
@@ -153,6 +161,7 @@ public class GameManager : MonoBehaviour
             
 
             dragonDefeated = true;
+            player.bossKeys = 0;
         }
         
     }

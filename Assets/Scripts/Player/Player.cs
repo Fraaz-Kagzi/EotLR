@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     public bool interacting;
    
     public bool isSlowed;
+    public bool inGameScene = true;
     public bool isPoisoned;
     public  int currentHealth;
     public int bossKeys = 0;

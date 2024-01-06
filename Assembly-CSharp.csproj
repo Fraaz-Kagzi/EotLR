@@ -110,6 +110,7 @@
     <Compile Include="Assets/Scripts/Enemy/Boss/clones/GiantBossClone.cs" />
     <Compile Include="Assets/Scripts/Shop/ShopManager.cs" />
     <Compile Include="Assets/Scripts/menus/wonMenu.cs" />
+    <Compile Include="Assets/Scripts/Player/weapons/Sniper.cs" />
     <Compile Include="Assets/Scripts/Enemy/Boss/giant/GiantBoss.cs" />
     <Compile Include="Assets/Scripts/menus/menu.cs" />
   </ItemGroup>

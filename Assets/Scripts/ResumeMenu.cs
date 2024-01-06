@@ -17,41 +17,46 @@ public class ResumeMenu : MonoBehaviour
 
 
     }
+
     void Update()
     {
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
-            if(CheckGame == true)
+            if (CheckGame == true)
             {
                 carryOn();
-
+                Cursor.visible = false;
+                Cursor.lockState = CursorLockMode.Locked;
             }
             else
             {
                 Stop();
+                Cursor.visible = true;
+                Cursor.lockState = CursorLockMode.None;
+
             }
         }
-    }
 
-    void carryOn()
-    {
-        ResumeMenuCanvas.SetActive(false);
-        Canvas.SetActive(true);
-        Time.timeScale = 1f;
-        CheckGame = false;
+        void carryOn()
+        {
+            ResumeMenuCanvas.SetActive(false);
+            Canvas.SetActive(true);
+            Time.timeScale = 1f;
+            CheckGame = false;
 
 
-    }
-    void Stop()
-    {
-        ResumeMenuCanvas.SetActive(true);
-        Canvas.SetActive(false);
-        Time.timeScale = 0f;
-        CheckGame = true;
-
+        }
+        void Stop()
+        {
+            ResumeMenuCanvas.SetActive(true);
+            Canvas.SetActive(false);
+            Time.timeScale = 0f;
+            CheckGame = true;
 
 
 
+
+        }
     }
 }

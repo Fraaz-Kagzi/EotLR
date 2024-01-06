@@ -54,85 +54,87 @@ public class Player_Controller : MonoBehaviour
 
     void Update()
     {
-        // Mouse Input for Looking
-        float mouseX = Input.GetAxis("Mouse X") * sensitivity;
-        rotationX -= Input.GetAxis("Mouse Y") * sensitivity;
-        rotationX = Mathf.Clamp(rotationX, -90.0f, 90.0f); // Limit vertical rotation
-
-        // Apply rotation to the player
-        transform.Rotate(0, mouseX, 0);
-        Camera.main.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
-       
         
+            // Mouse Input for Looking
+            float mouseX = Input.GetAxis("Mouse X") * sensitivity;
+            rotationX -= Input.GetAxis("Mouse Y") * sensitivity;
+            rotationX = Mathf.Clamp(rotationX, -90.0f, 90.0f); // Limit vertical rotation
 
-        float horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
-
-        Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
-        moveDirection = transform.TransformDirection(moveDirection);
+            // Apply rotation to the player
+            transform.Rotate(0, mouseX, 0);
+            Camera.main.transform.localRotation = Quaternion.Euler(rotationX, 0, 0);
 
 
-        // Apply gravity continuously
-        if (controller.isGrounded)
-        {
-            verticalVelocity = -gravity * Time.deltaTime; // Reset vertical velocity when grounded.
-            if (Input.GetButtonDown("Jump") && stam > 0)
+
+            float horizontalInput = Input.GetAxis("Horizontal");
+            float verticalInput = Input.GetAxis("Vertical");
+
+            Vector3 moveDirection = new Vector3(horizontalInput, 0, verticalInput);
+            moveDirection = transform.TransformDirection(moveDirection);
+
+
+            // Apply gravity continuously
+            if (controller.isGrounded)
             {
-                verticalVelocity = jumpForce;
-                isJumping = true;
-                stam-=jumpCost;
-                if(stam<0)stam=0;
-                stambar.UpdateStamBar(stam,maxStamina);
-                 
-                if(recharge != null) StopCoroutine(recharge);
-                recharge=StartCoroutine(RechargeStam());
-                
+                verticalVelocity = -gravity * Time.deltaTime; // Reset vertical velocity when grounded.
+                if (Input.GetButtonDown("Jump") && stam > 0)
+                {
+                    verticalVelocity = jumpForce;
+                    isJumping = true;
+                    stam -= jumpCost;
+                    if (stam < 0) stam = 0;
+                    stambar.UpdateStamBar(stam, maxStamina);
+
+                    if (recharge != null) StopCoroutine(recharge);
+                    recharge = StartCoroutine(RechargeStam());
+
+                }
             }
-        }
-    
-        else
-        {
-            verticalVelocity -= gravity * Time.deltaTime; // Apply gravity when not grounded.
-        }
 
-        moveDirection = new Vector3(horizontalInput, verticalVelocity, verticalInput);
-        moveDirection = transform.TransformDirection(moveDirection);
+            else
+            {
+                verticalVelocity -= gravity * Time.deltaTime; // Apply gravity when not grounded.
+            }
+
+            moveDirection = new Vector3(horizontalInput, verticalVelocity, verticalInput);
+            moveDirection = transform.TransformDirection(moveDirection);
 
 
-        // Check if the "Shift" key is held down to sprint.
-        if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift))&& stam>0)
-        {
-            isSprinting = true;
-            animator.SetBool("isSprinting", true);
-            moveSpeed = normalMoveSpeed * 1.5f; // Double the movement speed.
-            stam-=sprintCost * Time.deltaTime;
-            if(stam<0)stam=0;
-            stambar.UpdateStamBar(stam,maxStamina);
-            if(recharge != null) StopCoroutine(recharge);
-            recharge=StartCoroutine(RechargeStam());
-        }
-        else
-        {
-            isSprinting = false;
-            animator.SetBool("isSprinting", false);
-            moveSpeed = normalMoveSpeed; // Reset the movement speed to normal.
-        }
+            // Check if the "Shift" key is held down to sprint.
+            if ((Input.GetKey(KeyCode.LeftShift) || Input.GetKey(KeyCode.RightShift)) && stam > 0)
+            {
+                isSprinting = true;
+                animator.SetBool("isSprinting", true);
+                moveSpeed = normalMoveSpeed * 1.5f; // increase the movement speed.
+                stam -= sprintCost * Time.deltaTime;
+                if (stam < 0) stam = 0;
+                stambar.UpdateStamBar(stam, maxStamina);
+                if (recharge != null) StopCoroutine(recharge);
+                recharge = StartCoroutine(RechargeStam());
+            }
+            else
+            {
+                isSprinting = false;
+                animator.SetBool("isSprinting", false);
+                moveSpeed = normalMoveSpeed; // Reset the movement speed to normal.
+            }
 
-        moveDirection *= moveSpeed;
+            moveDirection *= moveSpeed;
 
-        controller.Move(moveDirection * Time.deltaTime);
+            controller.Move(moveDirection * Time.deltaTime);
 
-        // Check if the player is moving and set the "isMoving" parameter in the animator.
-        if (moveDirection.magnitude > 0.8f)
-        {
-            animator.SetBool("isMoving", true);
-        }
-        else
-        {
-            animator.SetBool("isMoving", false);
-        }
+            // Check if the player is moving and set the "isMoving" parameter in the animator.
+            if (moveDirection.magnitude > 0.8f)
+            {
+                animator.SetBool("isMoving", true);
+            }
+            else
+            {
+                animator.SetBool("isMoving", false);
+            }
 
-        // Check if the "C" key is pressed and set the "isCrouched" parameter in the animator.
+            
+        
         
     }
 

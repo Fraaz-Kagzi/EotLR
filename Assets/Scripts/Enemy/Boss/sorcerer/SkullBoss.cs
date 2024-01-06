@@ -131,7 +131,7 @@ public class SkullBoss : MonoBehaviour
             else if (playerInAttackRange && playerInSightRange && playerInPhysicalRange)
             {
                 GetComponent<Animator>().SetBool("isPhysical", true);
-                AttackPlayer();
+                CloseAttackPlayer();
             }
 
          
@@ -188,8 +188,8 @@ public class SkullBoss : MonoBehaviour
             transform.LookAt(player);
             // Attack code here
             Rigidbody rb = Instantiate(projectile, bulletSpawnPoint.position, Quaternion.identity).GetComponent<Rigidbody>();
-            rb.AddForce(-transform.right * 6f, ForceMode.Impulse);
-            rb.AddForce(-transform.up * 5f, ForceMode.Impulse);
+            rb.AddForce(-transform.right * 8f, ForceMode.Impulse);
+            rb.AddForce(-transform.up * 10f, ForceMode.Impulse);
             rb.AddForce(transform.forward * bulletSpeed, ForceMode.Impulse);
 
             //rb.AddForce(transform.left * 1f, ForceMode.Impulse);
@@ -203,6 +203,35 @@ public class SkullBoss : MonoBehaviour
             Debug.Log(normalAttackCount);
             alreadyAttacked = true;
             Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+    private void CloseAttackPlayer()
+    {
+        //Make sure enemy doesn't move
+        agent.SetDestination(transform.position);
+
+
+
+        if (!alreadyAttacked)
+        {
+            transform.LookAt(player);
+            ///Attack code here
+			Invoke("Delay", 1.5f);
+            PerformPhysicalAttack();
+            ///End of attack code
+
+            alreadyAttacked = true;
+            Invoke(nameof(ResetAttack), timeBetweenAttacks);
+        }
+    }
+   
+
+    void PerformPhysicalAttack()
+    {
+        Player playerHealth = player.GetComponent<Player>();
+        if (playerHealth != null)
+        {
+            playerHealth.TakeDamage(15); 
         }
     }
 

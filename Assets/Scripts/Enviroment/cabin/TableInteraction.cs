@@ -9,30 +9,40 @@ public class TableInteraction : MonoBehaviour
     private Vector3 playerPositionBeforeInventory;
     public Player player;
 
-    
+
     void Update()
     {
+        if (player.inGameScene)
+        {
+            Cursor.visible = false;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+        else
+        {
+            // To show the cursor and unlock it
+            Cursor.visible = true;
+            Cursor.lockState = CursorLockMode.None;
+
+        }
+
+        
         if (Input.GetKeyDown(KeyCode.E))
         {
             TryInteractWithTable();
+
+
         }
         else if (Input.GetKeyDown(KeyCode.C))
         {
             ReturnFromInventory();
             player.interacting = false;
         }
+        Debug.Log(player.inGameScene);
 
-        // Set cursor visibility based on the current scene
-        SetCursorVisibility();
+
     }
 
-    private void SetCursorVisibility()
-    {
-        bool isInventorySceneActive = IsInventorySceneActive();
 
-        Cursor.visible = isInventorySceneActive;
-        Cursor.lockState = isInventorySceneActive ? CursorLockMode.None : CursorLockMode.Locked;
-    }
 
     private void TryInteractWithTable()
     {
@@ -49,6 +59,7 @@ public class TableInteraction : MonoBehaviour
 
                 // Load the inventory scene additively
                 SceneManager.LoadScene(inventorySceneName, LoadSceneMode.Additive);
+                player.inGameScene = false;
                 break; // Exit the loop after finding the player
             }
         }
@@ -72,8 +83,10 @@ public class TableInteraction : MonoBehaviour
 
             // Unload the inventory scene
             SceneManager.UnloadSceneAsync(inventorySceneName);
+            
             Debug.Log("Unloaded InventoryScene.");
         }
+        player.inGameScene = true;
     }
 
     private bool IsInventorySceneActive()
@@ -82,5 +95,15 @@ public class TableInteraction : MonoBehaviour
         Scene currentScene = SceneManager.GetActiveScene();
         Scene inventoryScene = SceneManager.GetSceneByName(inventorySceneName);
         return currentScene.buildIndex == inventoryScene.buildIndex;
+    }
+    private void showCursor()
+    {
+        Cursor.visible = true;
+        Cursor.lockState = CursorLockMode.None;
+    }
+    private void hideCursor()
+    {
+        Cursor.visible = false;
+        Cursor.lockState = CursorLockMode.Locked;
     }
 }

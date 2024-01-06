@@ -27,8 +27,12 @@ public class EnemyBullet : MonoBehaviour
 
            
         }
-        // Destroy the bullet
-        Destroy(gameObject);
+        if (collision.collider.CompareTag("Player") || (collision.collider.gameObject.layer == LayerMask.NameToLayer("Ground")))
+        {
+
+            // Destroy the bullet
+            Destroy(gameObject);
+        }
     }
 }
 
