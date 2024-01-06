@@ -1,5 +1,5 @@
 ﻿<Properties StartupConfiguration="{2FD8CE07-7E41-0FFB-A27C-F3E364EF8174}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Player/weapons/Sniper.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Prefabs/enemyGenerator.cs">
     <Files>
       <File FileName="Assets/Scripts/Player/Player.cs" Line="23" Column="36" IsPinned="True" />
       <File FileName="Assets/Scripts/Enviroment/cabin/TableInteraction.cs" Line="15" Column="9" IsPinned="True" />
@@ -9,19 +9,19 @@
       <File FileName="Assets/Scripts/FoodItem.cs" Line="12" Column="1" />
       <File FileName="Assets/Scripts/Enviroment/FrozenArea.cs" />
       <File FileName="Assets/Scripts/Enviroment/cabin/BedInteraction.cs" />
-      <File FileName="Assets/Scripts/Enviroment/QuickSandArea.cs" />
+      <File FileName="Assets/Scripts/Enviroment/QuickSandArea.cs" Line="26" Column="6" />
       <File FileName="Assets/Scripts/Enemy/Enemy.cs" />
       <File FileName="Assets/Scripts/Enemy/Boss/sorcerer/Shadowmancer.cs" Line="126" Column="45" />
       <File FileName="Assets/Scripts/Player/weapons/SniperScope.cs" />
       <File FileName="Assets/Scripts/Shop/ShopManager.cs" />
-      <File FileName="Assets/Scripts/Inventory/InventoryManager.cs" Line="125" Column="2" />
+      <File FileName="Assets/Scripts/Inventory/InventoryManager.cs" Line="28" Column="10" />
       <File FileName="Assets/Scripts/Enemy/EnemyAi.cs" />
       <File FileName="Assets/Scripts/Enemy/Beast.cs" Line="126" Column="18" />
       <File FileName="Assets/Scripts/respawnMenu.cs" />
       <File FileName="Assets/Scripts/Enemy/Boss/sorcerer/SkullBoss.cs" Line="146" Column="1" />
       <File FileName="Assets/Scripts/Inventory/InventoryItem.cs" />
       <File FileName="Assets/Scripts/Shop/ShopTemplate.cs" />
-      <File FileName="Assets/Scripts/Shop/ShopItemSO.cs" Line="12" Column="1" />
+      <File FileName="Assets/Scripts/Shop/ShopItemSO.cs" Line="14" Column="1" />
       <File FileName="Assets/Scripts/GameManager.cs" Line="40" Column="1" />
       <File FileName="Assets/Scripts/Enemy/Boss/giant/Ork.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/Enemy/Boss/giant/GiantBoss.cs" Line="163" Column="2" />
@@ -35,7 +35,8 @@
       <File FileName="Assets/Scripts/menus/SceneSwitcher.cs" Line="1" Column="1" />
       <File FileName="Assets/Scripts/ResumeMenu.cs" Line="28" Column="27" />
       <File FileName="Assets/Scripts/Enemy/enemyBullet.cs" Line="13" Column="55" />
-      <File FileName="Assets/Scripts/Player/weapons/Sniper.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Player/weapons/Sniper.cs" Line="20" Column="6" />
+      <File FileName="Assets/Prefabs/enemyGenerator.cs" Line="19" Column="1" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
@@ -53,13 +54,12 @@
                 </Node>
                 <Node name="Enviroment" expanded="True">
                   <Node name="cabin" expanded="True" />
+                  <Node name="QuickSandArea.cs" selected="True" />
                 </Node>
                 <Node name="Inventory" expanded="True" />
                 <Node name="menus" expanded="True" />
                 <Node name="Player" expanded="True">
-                  <Node name="weapons" expanded="True">
-                    <Node name="Sniper.cs" selected="True" />
-                  </Node>
+                  <Node name="weapons" expanded="True" />
                 </Node>
                 <Node name="Shop" expanded="True" />
               </Node>

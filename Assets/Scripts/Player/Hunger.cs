@@ -66,7 +66,7 @@ public class Hunger : MonoBehaviour
     {
         int totalPoisonTicks = 5;
         float poisonInterval = 1f; // 1 second interval
-        int damagePerTick = 5;
+        int damagePerTick = 2;
 
         for (int i = 0; i < totalPoisonTicks; i++)
         {
