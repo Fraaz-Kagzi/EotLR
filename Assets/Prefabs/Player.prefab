@@ -9,7 +9,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8348432772320198701}
-  - component: {fileID: 8366577727079155782}
   m_Layer: 0
   m_Name: Weapon
   m_TagString: Weapon
@@ -36,23 +35,6 @@ Transform:
   - {fileID: 4205428528983993994}
   m_Father: {fileID: 6253916046565803452}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8366577727079155782
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 536565418761426935}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cbf7bccf495ca4ae3ba71b7c4829f71e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  guns:
-  - {fileID: 4566134664012800253}
-  - {fileID: 5907508814044276058}
-  - {fileID: 3537434964395177008}
-  - {fileID: 1323816307176029977}
 --- !u!1 &1027841312573450475
 GameObject:
   m_ObjectHideFlags: 0
@@ -521,6 +503,7 @@ MonoBehaviour:
   reloadTime: 1
   timeBetweenShots: 0
   allowButtonHold: 1
+  canvas: {fileID: 0}
   fpsCam: {fileID: 583412152572042005}
   attackPoint: {fileID: 5036454572080438610}
   enemy: {fileID: 0}
@@ -531,6 +514,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   bulletHole: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
   text: {fileID: 0}
+  reloadText: {fileID: 0}
 --- !u!4 &1807336834530338211 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: a957639d15248134a9be03d5ae4fed7f, type: 3}
@@ -653,6 +637,7 @@ MonoBehaviour:
   reloadTime: 2
   timeBetweenShots: 0
   allowButtonHold: 0
+  canvas: {fileID: 0}
   fpsCam: {fileID: 583412152572042005}
   attackPoint: {fileID: 4407715307043427491}
   enemy: {fileID: 0}
@@ -663,6 +648,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   bulletHole: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
   text: {fileID: 0}
+  reloadText: {fileID: 0}
 --- !u!1001 &4455774763890968929
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -775,6 +761,7 @@ MonoBehaviour:
   reloadTime: 2
   timeBetweenShots: 0.7
   allowButtonHold: 1
+  canvas: {fileID: 0}
   fpsCam: {fileID: 583412152572042005}
   attackPoint: {fileID: 8287020772372743163}
   enemy: {fileID: 0}
@@ -785,6 +772,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   bulletHole: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
   text: {fileID: 0}
+  reloadText: {fileID: 0}
 --- !u!4 &4205428528983993994 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 8f9696fb6017be144a307b6586855ac0, type: 3}
@@ -943,11 +931,13 @@ MonoBehaviour:
   sensitivity: 2
   jumpForce: 7
   gravity: 9.8
+  normalMoveSpeed: 0
   sprintCost: 10
   jumpCost: 20
   maxStamina: 100
   stam: 100
   chargeRate: 35
+  player: {fileID: 0}
   stambar: {fileID: 0}
 --- !u!143 &6923817132242182583
 CharacterController:
@@ -1014,10 +1004,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b1e02d7322a9473ba2fe7ba0120c5a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  coinManager: {fileID: 0}
+  initialSpeed: 0
   realmGold: 0
+  stamina: 100
+  maxStam: 0
+  freezeProtection: 100
+  hunger: 0
+  interacting: 0
+  isSlowed: 0
+  inGameScene: 1
+  isPoisoned: 0
+  currentHealth: 0
+  bossKeys: 0
   healthBar: {fileID: 0}
+  Hungry: {fileID: 0}
+  hb: {fileID: 0}
+  stambar: {fileID: 0}
   text: {fileID: 0}
+  pc: {fileID: 0}
   equippedWeapon: {fileID: 0}
 --- !u!1001 &6717899662643435531
 PrefabInstance:
@@ -1135,6 +1139,7 @@ MonoBehaviour:
   reloadTime: 1.5
   timeBetweenShots: 0.3
   allowButtonHold: 1
+  canvas: {fileID: 0}
   fpsCam: {fileID: 583412152572042005}
   attackPoint: {fileID: 3578082427115228767}
   enemy: {fileID: 0}
@@ -1145,6 +1150,7 @@ MonoBehaviour:
   muzzleFlash: {fileID: 1000010254994808, guid: 9defeac88977c0d448aa4541073ee9e4, type: 3}
   bulletHole: {fileID: 1000010844420130, guid: 4edabb1c0dde62743b137378c7d22980, type: 3}
   text: {fileID: 0}
+  reloadText: {fileID: 0}
 --- !u!4 &6534863088303833056 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: ffb3f5f9531da764c906b0baf3285c62, type: 3}

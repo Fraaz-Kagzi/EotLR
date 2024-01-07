@@ -5,6 +5,7 @@ using UnityEngine;
 public class Armour : MonoBehaviour
 {
     public Player player;
+    public string armour = "";
     public bool isPoisonArmour;
     public bool isSandArmour;
     public bool isFrostArmour;
@@ -24,13 +25,42 @@ public class Armour : MonoBehaviour
         
     }
 
+    public void ApplyArmour(string armourType)
+    {
+        armour = armourType;
+        noArmour();
+        switch (armourType)
+        {
+            case "Poison Armour":
+                isPoisonArmour = true;
+                break;
+            case "Sand Armour":
+                isSandArmour = true;
+                break;
+            case "Frost Armour":
+                isFrostArmour = true;
+                break;
+            case "Basic Frost Armour":
+                player.freezeProtection = 100;
+                break;
+            case "Bronze Armour":
+                armourHealth = 50;
+                break;
+            case "Diamond Armour":
+                armourHealth = 150;
+                break;
+            default:
+                noArmour();
+                break;
+        }
+    }
+
     public void noArmour() {
 
         isPoisonArmour = false;
         isSandArmour = false;
         isFrostArmour = false;
         player.freezeProtection = 10;
-        isMovementArmour = false;
         armourHealth = 0;
     }
 
