@@ -145,3 +145,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   foodValue: 2
   isPoisonous: 0
+  isKey: 0
