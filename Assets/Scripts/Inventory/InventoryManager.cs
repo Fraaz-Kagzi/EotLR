@@ -16,12 +16,14 @@ public class InventoryManager : MonoBehaviour
     public Button[] equipButtons;
     public bool[] isEquipped;
     public GameObject alertMessage;
+    private WeaponManager weaponManagerInstance;
 
     // Start is called before the first frame update
     void Start(){
         Cursor.visible = true;
         Cursor.lockState = CursorLockMode.None;
         isEquipped = new bool[equipButtons.Length];
+        weaponManagerInstance = WeaponManager.Instance;
         if (purchasedItems != null) {
         for (int i = 0; i < purchasedItems.Length; i++) {
             itemPanels[i].gameObject.SetActive(true);
@@ -90,7 +92,6 @@ public class InventoryManager : MonoBehaviour
       //     }
       //   }
       // }
-      WeaponManager weaponManagerInstance = WeaponManager.Instance;
       armour = weaponManagerInstance.getArmour();
       for (int i =0; i < itemPanels.Length; i++){
           if (weaponManagerInstance.currentGun == itemPanels[i].name.text || armour == itemPanels[i].name.text){
@@ -111,7 +112,6 @@ public class InventoryManager : MonoBehaviour
       if(equipedWeapon != null){
         //Load the weapons and the armour
         // GameManager.Save();
-        WeaponManager weaponManagerInstance = WeaponManager.Instance;
         weaponManagerInstance.LoadWeapon(equipedWeapon);
         weaponManagerInstance.ApplyArmour(armour);
       }else{
@@ -129,7 +129,7 @@ public class InventoryManager : MonoBehaviour
    public static bool IncludesItem(ShopItemSO shopItem){
       if (purchasedItems != null)
       {
-          return Array.IndexOf(purchasedItems, shopItem) != -1;
+          return (Array.IndexOf(purchasedItems, shopItem) != -1);
       }
 
       return false; 

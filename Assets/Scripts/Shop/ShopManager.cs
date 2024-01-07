@@ -13,11 +13,12 @@ public class ShopManager : MonoBehaviour
     public ShopItemSO[] shopItemSO;
     public ShopTemplate[] shopPanels;
     public Button[] purchaseButtons;
-
+    private WeaponManager weaponManagerInstance;
 
     // Start is called before the first frame update
     void Start()
     {
+      weaponManagerInstance = WeaponManager.Instance;
       for (int i = 0; i < shopItemSO.Length; i++) {
           shopPanels[i].gameObject.SetActive(true);
       }
@@ -42,9 +43,14 @@ public class ShopManager : MonoBehaviour
 
       if (InventoryManager.IncludesItem(shopItemSO[btnNo])){
         // Refund Item
-        CoinManager.addCoins(shopItemSO[btnNo].price);
-        coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
-        InventoryManager.removeItem(shopItemSO[btnNo]);
+        Debug.Log(weaponManagerInstance.getArmour());
+        Debug.Log(shopItemSO[btnNo].title);
+        Debug.Log(shopItemSO[btnNo].name);
+        if(weaponManagerInstance.currentGun != shopItemSO[btnNo].title || weaponManagerInstance.getArmour() != shopItemSO[btnNo].title){
+          CoinManager.addCoins(shopItemSO[btnNo].price);
+          coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
+          InventoryManager.removeItem(shopItemSO[btnNo]);
+        }
         checkPurchasable();
       }else{
         // Purchase Item
