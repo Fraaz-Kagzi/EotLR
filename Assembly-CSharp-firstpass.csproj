@@ -58,13 +58,6 @@
     <Analyzer Include="/Applications/Unity/Hub/Editor/2023.1.15f1/Unity.app/Contents/Tools/Unity.SourceGenerators/Unity.Properties.SourceGenerator.dll" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/DecalDestroyer.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/GunShoot.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ParticleCollision.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ExtinguishableFire.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ParticleMenu.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/GunAim.cs" />
-    <Compile Include="Assets/Plugins/UnityTechnologies/EffectExamples/Shared/Scripts/ParticleExamples.cs" />
     <Compile Include="Assets/Plugins/Frost/FrostEffect.cs" />
     <Compile Include="Assets/Plugins/True_Fantastic_Creatures/Centaur/Centaur_ctrl.cs" />
   </ItemGroup>
