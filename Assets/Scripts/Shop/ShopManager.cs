@@ -44,9 +44,12 @@ public class ShopManager : MonoBehaviour
       if (InventoryManager.IncludesItem(shopItemSO[btnNo])){
         // Refund Item
         Debug.Log(weaponManagerInstance.getArmour());
+        Debug.Log(weaponManagerInstance.currentGun);
         Debug.Log(shopItemSO[btnNo].title);
         Debug.Log(shopItemSO[btnNo].name);
-        if(weaponManagerInstance.currentGun != shopItemSO[btnNo].title || weaponManagerInstance.getArmour() != shopItemSO[btnNo].title){
+        if(weaponManagerInstance.currentGun == shopItemSO[btnNo].title || weaponManagerInstance.getArmour() == shopItemSO[btnNo].title){
+          Debug.Log("You need to unequip the item first");
+        }else{
           CoinManager.addCoins(shopItemSO[btnNo].price);
           coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
           InventoryManager.removeItem(shopItemSO[btnNo]);
