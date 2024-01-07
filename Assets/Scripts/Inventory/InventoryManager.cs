@@ -10,8 +10,8 @@ public class InventoryManager : MonoBehaviour
 {
 
     public static ShopItemSO[] purchasedItems;
-    public static string[] equipedWeapons = new string[] { null, null };
-    public static string armour;
+    public string equipedWeapon;
+    public string armour;
     public InventoryItem[] itemPanels;
     public Button[] equipButtons;
     public bool[] isEquipped;
@@ -43,7 +43,7 @@ public class InventoryManager : MonoBehaviour
         buttonText.text = "Equip";
         
         if (purchasedItems[btnNum].type == "gun"){
-          removeEquipedWeapon(purchasedItems[btnNum].title);
+          equipedWeapon = null;
         };
 
         if (purchasedItems[btnNum].type == "armour"){
@@ -56,79 +56,68 @@ public class InventoryManager : MonoBehaviour
 
         if (purchasedItems[btnNum].type == "gun"){
 
-          foreach (string weapon in equipedWeapons){
-            Debug.Log(weapon);
-            if (weapon == null){ 
-              hasEmptySlot = true;
-              }
-          }
-
-          if(hasEmptySlot){
+          if(equipedWeapon == null){
             buttonText.text = "Unequip";
-            if (purchasedItems[btnNum].type == "gun"){
-              addEquipedWeapon(purchasedItems[btnNum].title);
-              isEquipped[btnNum] = true; 
-            };
+            equipedWeapon = purchasedItems[btnNum].title;
+            isEquipped[btnNum] = true; 
           }else{
-            alertMessageTextComponent.text = "You cannot equip more than 2 weapons";
+            alertMessageTextComponent.text = "You cannot equip more than 1 weapons";
             alertMessage.SetActive(true);
           }       
         } 
 
         if (purchasedItems[btnNum].type == "armour"){
-          buttonText.text = "Unequip";
-          armour = purchasedItems[btnNum].name;
-          isEquipped[btnNum] = true; 
-        }
-      }
-    }
-
-    public void displayEquipState(){
-      for (int i =0; i < itemPanels.Length; i++){
-        for(int j=0; j < equipedWeapons.Length; j++){
-          if (equipedWeapons[j] == itemPanels[i].name.text){
-            TMP_Text buttonText = equipButtons[i].GetComponentInChildren<TMP_Text>();
+          Debug.Log(armour);
+          if(armour == null || armour == ""){
             buttonText.text = "Unequip";
-            isEquipped[i] = true;
+            armour = purchasedItems[btnNum].title;
+            isEquipped[btnNum] = true;
+          }else{
+            alertMessageTextComponent.text = "You can equip only 1 armour suit";
+            alertMessage.SetActive(true);
           }
         }
       }
     }
 
-    public void addEquipedWeapon(string itemName){
-      for (int i = 0; i < equipedWeapons.Length; i++){
-        if(equipedWeapons[i] == null){
-          equipedWeapons[i] = itemName;
-          break;
+    public void displayEquipState(){
+      // for (int i =0; i < itemPanels.Length; i++){
+      //   for(int j=0; j < equipedWeapons.Length; j++){
+      //     if (equipedWeapons[j] == itemPanels[i].name.text){
+      //       TMP_Text buttonText = equipButtons[i].GetComponentInChildren<TMP_Text>();
+      //       buttonText.text = "Unequip";
+      //       isEquipped[i] = true;
+      //     }
+      //   }
+      // }
+      WeaponManager weaponManagerInstance = WeaponManager.Instance;
+      armour = weaponManagerInstance.getArmour();
+      for (int i =0; i < itemPanels.Length; i++){
+          if (weaponManagerInstance.currentGun == itemPanels[i].name.text || armour == itemPanels[i].name.text){
+            TMP_Text buttonText = equipButtons[i].GetComponentInChildren<TMP_Text>();
+            buttonText.text = "Unequip";
+            isEquipped[i] = true;
+            equipedWeapon = weaponManagerInstance.currentGun;
+          }
         }
       }
-    }
-
-    public void removeEquipedWeapon(string itemName){
-      for (int i = 0; i < equipedWeapons.Length; i++){
-        if(equipedWeapons[i] == itemName){
-          equipedWeapons[i] = null;
-          break;
-        }
-      }
-    }
 
     public void ShopScene() {
       SceneManager.LoadScene("Shop");
     }
 
     public void GameScene() {
-      bool found = false;
-      for (int i = 0; i < equipedWeapons.Length; i++){
-        if(equipedWeapons[i] != null){
-          SceneManager.LoadScene("SampleScene");
-          found =  true;
-        }
-      }
-      if (found == false){
+
+      if(equipedWeapon != null){
+        //Load the weapons and the armour
+        // GameManager.Save();
+        WeaponManager weaponManagerInstance = WeaponManager.Instance;
+        weaponManagerInstance.LoadWeapon(equipedWeapon);
+        weaponManagerInstance.ApplyArmour(armour);
+      }else{
         alertMessage.SetActive(true);
       }
-      
+
     }
 
     public void showItems(){
