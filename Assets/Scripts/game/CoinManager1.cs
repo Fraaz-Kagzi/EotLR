@@ -5,7 +5,7 @@ using UnityEngine;
 public class CoinManager : MonoBehaviour
 {
 
-    public static int playerCoins = 1000;
+    public static int playerCoins = 100;
     // Start is called before the first frame update
     void Start()
     {

@@ -13,6 +13,7 @@ public class ShopManager : MonoBehaviour
     public ShopItemSO[] shopItemSO;
     public ShopTemplate[] shopPanels;
     public Button[] purchaseButtons;
+    public GameObject alertMessage;
     private WeaponManager weaponManagerInstance;
 
     // Start is called before the first frame update
@@ -43,10 +44,6 @@ public class ShopManager : MonoBehaviour
 
       if (InventoryManager.IncludesItem(shopItemSO[btnNo])){
         // Refund Item
-        Debug.Log(weaponManagerInstance.getArmour());
-        Debug.Log(weaponManagerInstance.currentGun);
-        Debug.Log(shopItemSO[btnNo].title);
-        Debug.Log(shopItemSO[btnNo].name);
         if(weaponManagerInstance.currentGun == shopItemSO[btnNo].title || weaponManagerInstance.getArmour() == shopItemSO[btnNo].title){
           Debug.Log("You need to unequip the item first");
         }else{
@@ -57,11 +54,16 @@ public class ShopManager : MonoBehaviour
         checkPurchasable();
       }else{
         // Purchase Item
-        if (CoinManager.playerCoins > shopItemSO[btnNo].price){
+        if (CoinManager.playerCoins >= shopItemSO[btnNo].price){
           CoinManager.addCoins(-shopItemSO[btnNo].price);
           coinsText.text = "Coins: " + CoinManager.playerCoins.ToString();
           InventoryManager.addItems(shopItemSO[btnNo]);
+          alertMessage.SetActive(false);
           checkPurchasable();
+        }else{
+          TMP_Text alertMessageTextComponent = alertMessage.GetComponent<TMP_Text>();
+          alertMessageTextComponent.text = "Not Enough Coins";
+          alertMessage.SetActive(true);
         }
       }
 
