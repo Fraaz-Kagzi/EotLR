@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: FrostArmour
   m_EditorClassIdentifier: 
   title: Frost Armour
-  description: Frost Armour
+  description: Immune to Frost present in the Ice Arena
   type: armour
   price: 400

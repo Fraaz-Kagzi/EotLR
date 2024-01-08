@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BaseFrost
   m_EditorClassIdentifier: 
   title: Basic Frost Armour
-  description: Basic Frost Armour
+  description: Give you temporarly protection in the frost
   type: armour
   price: 200

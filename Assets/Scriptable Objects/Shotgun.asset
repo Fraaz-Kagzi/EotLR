@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Shotgun
   m_EditorClassIdentifier: 
   title: shotgun
-  description: This is a shotgun
+  description: Long barreled firearm that discharges a shot shell
   type: gun
-  price: 120
+  price: 200

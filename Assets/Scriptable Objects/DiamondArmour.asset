@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: DiamondArmour
   m_EditorClassIdentifier: 
   title: Diamond Armour
-  description: Diamond Armour
+  description: 'Gives you additonal 150 armour '
   type: armour
   price: 500

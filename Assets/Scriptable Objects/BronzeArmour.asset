@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: BronzeArmour
   m_EditorClassIdentifier: 
   title: Bronze Armour
-  description: Bronze Armour
+  description: 'Gives you additonal 50 armour '
   type: armour
   price: 250

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: Assault
   m_EditorClassIdentifier: 
   title: assault
-  description: This is an assault rifle
+  description: Fully automatic rifle intended for short and long range
   type: gun
-  price: 250
+  price: 500

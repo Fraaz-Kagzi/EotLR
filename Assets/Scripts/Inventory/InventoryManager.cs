@@ -167,7 +167,7 @@ public class InventoryManager : MonoBehaviour
       }
 
       if (indexOfItemToRemove != -1)
-      {
+        {
           ShopItemSO[] newArray = new ShopItemSO[purchasedItems.Length - 1];
 
           for (int i = 0, j = 0; i < purchasedItems.Length; i++)
@@ -180,7 +180,11 @@ public class InventoryManager : MonoBehaviour
           }
 
           purchasedItems = newArray;
+      }
     }
+
+    public static void resetPurchaseItems(){
+      purchasedItems = new ShopItemSO[0]; 
     }
 
 }

@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
     //currently equipped weapon
     public Player_Controller pc;
     public GameObject equippedWeapon;
-
+    private WeaponManager weaponManagerInstance;
 
     
 
@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     {
         Transform respawnPoint = CheckpointManager.GetRespawnPoint();
         Debug.Log(respawnPoint);
+        weaponManagerInstance = WeaponManager.Instance;
         if (respawnPoint != null)
         {
             transform.position = respawnPoint.position;
@@ -87,6 +88,9 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
+        InventoryManager.resetPurchaseItems();
+        weaponManagerInstance.resetGun();
+        weaponManagerInstance.LoadWeapon("");
         Transform respawnPoint = CheckpointManager.GetRespawnPoint();
         //Debug.Log(respawnPoint);
         if (respawnPoint != null)

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: PoisonArmour
   m_EditorClassIdentifier: 
   title: Poison Armour
-  description: Poison Armour
+  description: Immune to Poison damage. Can eat all types of food
   type: armour
   price: 400

@@ -66,4 +66,9 @@ public class WeaponManager : MonoBehaviour
         return ArmourScript.armour;
     }
 
+    public void resetGun(){
+        currentGun = null;
+        ArmourScript.noArmour();
+    }
+
 }

@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SandArmour
   m_EditorClassIdentifier: 
   title: Sand Armour
-  description: This is Sand Armour
+  description: Immune to quick sand present in the deser
   type: armour
   price: 200

@@ -12,5 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 03258f4c187984b3a9bcddf377cfeadc, type: 3}
   m_Name: Sniper
   m_EditorClassIdentifier: 
-  title: Sniper
-  price: 200
+  title: sniper
+  description: Shoulder fired weapon intended for long range action
+  type: gun
+  price: 2000
