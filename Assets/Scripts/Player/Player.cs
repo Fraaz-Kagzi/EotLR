@@ -31,6 +31,7 @@ public class Player : MonoBehaviour
     public Hunger Hungry;
     public HungerBar hb;
     public Stambar stambar;
+    public Armour armour;
     
     
 
@@ -74,9 +75,15 @@ public class Player : MonoBehaviour
     //health
     public void TakeDamage(int damage)
     {
+        if(armour.armourHealth>0){
+            Debug.Log(armour.armourHealth);
+            armour.armourHealth -= damage;
+        }
+        else{
         currentHealth -= damage;
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
         Debug.Log(currentHealth);
+        }
 
 
         // Check for player death

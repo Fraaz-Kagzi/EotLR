@@ -8,6 +8,8 @@ public class Hunger : MonoBehaviour
     public int currentHunger;
     public int damagePerSecond = 2;
 
+    public Player_Controller player_Controller;
+
     public float hungerDecreaseRate = 1f; // Decrease by 1 every second
     public float foodPickupRange = 2f; // Range for picking up food items
 
@@ -60,6 +62,11 @@ public class Hunger : MonoBehaviour
 
             addKey();
         }
+        if (foodItem.isSpeed)
+        {
+
+            StartCoroutine(SpeedBoostCoroutine());
+        }
     }
 
     private IEnumerator ApplyPoisonDamage()
@@ -77,6 +84,15 @@ public class Hunger : MonoBehaviour
             yield return new WaitForSeconds(poisonInterval);
         }
         player.isPoisoned = false;
+    }
+    private IEnumerator SpeedBoostCoroutine()
+    {
+        float originalSpeed = player_Controller.normalMoveSpeed;
+        player_Controller.normalMoveSpeed = (originalSpeed * 2); // Double the speed
+
+        yield return new WaitForSeconds(5); // Wait for 5 seconds
+
+        player_Controller.normalMoveSpeed = (originalSpeed); // Reset to original speed
     }
 
     private void addKey()

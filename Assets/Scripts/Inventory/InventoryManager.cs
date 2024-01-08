@@ -10,7 +10,7 @@ public class InventoryManager : MonoBehaviour
 {
 
     public static ShopItemSO[] purchasedItems;
-    public string equipedWeapon;
+    public string equipedWeapon = null;
     public string armour;
     public InventoryItem[] itemPanels;
     public Button[] equipButtons;
@@ -57,16 +57,17 @@ public class InventoryManager : MonoBehaviour
       }else{
 
         if (purchasedItems[btnNum].type == "gun"){
+          Debug.Log("weapon is " + equipedWeapon);
+          if(string.IsNullOrEmpty(equipedWeapon)){
+              buttonText.text = "Unequip";
+              equipedWeapon = purchasedItems[btnNum].title;
+              isEquipped[btnNum] = true; 
+          } else {
+              alertMessageTextComponent.text = "You cannot equip more than 1 weapon";
+              alertMessage.SetActive(true);
+          }      
+}
 
-          if(equipedWeapon == null){
-            buttonText.text = "Unequip";
-            equipedWeapon = purchasedItems[btnNum].title;
-            isEquipped[btnNum] = true; 
-          }else{
-            alertMessageTextComponent.text = "You cannot equip more than 1 weapons";
-            alertMessage.SetActive(true);
-          }       
-        } 
 
         if (purchasedItems[btnNum].type == "armour"){
           Debug.Log(armour);

@@ -37,7 +37,7 @@ public class TableInteraction : MonoBehaviour
             ReturnFromInventory();
             player.interacting = false;
         }
-        Debug.Log(player.inGameScene);
+        //Debug.Log(player.inGameScene);
 
 
     }

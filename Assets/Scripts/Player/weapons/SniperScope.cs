@@ -19,12 +19,12 @@ public class SniperScope : MonoBehaviour
     private void Update()
     {
         
-        if (Input.GetKeyDown(KeyCode.Z))
+        if (Input.GetKeyDown(KeyCode.Mouse1))
         {
             zoomed = true;
             ToggleScope();
         }
-        if (Input.GetKeyUp(KeyCode.Z) && zoomed)
+        if (Input.GetKeyUp(KeyCode.Mouse1) && zoomed)
         {
             UnToggleScope();
             zoomed = false;
