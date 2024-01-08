@@ -1,7 +1,7 @@
 ﻿<Properties StartupConfiguration="{2FD8CE07-7E41-0FFB-A27C-F3E364EF8174}|">
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/Enviroment/cabin/PlayerCabinTrigger.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Scripts/game/CoinManager1.cs">
     <Files>
-      <File FileName="Assets/Scripts/Player/Player.cs" Line="23" Column="36" IsPinned="True" />
+      <File FileName="Assets/Scripts/Player/Player.cs" IsPinned="True" />
       <File FileName="Assets/Scripts/Enviroment/cabin/TableInteraction.cs" IsPinned="True" />
       <File FileName="Assets/Scripts/Armour.cs" />
       <File FileName="Assets/Scripts/Player/Player_Controller.cs" />
@@ -17,7 +17,7 @@
       <File FileName="Assets/Scripts/Inventory/InventoryManager.cs" />
       <File FileName="Assets/Scripts/Enemy/EnemyAi.cs" />
       <File FileName="Assets/Scripts/Enemy/Beast.cs" />
-      <File FileName="Assets/Scripts/respawnMenu.cs" Line="25" Column="1" />
+      <File FileName="Assets/Scripts/respawnMenu.cs" />
       <File FileName="Assets/Scripts/Enemy/Boss/sorcerer/SkullBoss.cs" />
       <File FileName="Assets/Scripts/Inventory/InventoryItem.cs" />
       <File FileName="Assets/Scripts/Shop/ShopTemplate.cs" />
@@ -37,33 +37,26 @@
       <File FileName="Assets/Scripts/Enemy/enemyBullet.cs" />
       <File FileName="Assets/Scripts/Player/weapons/Sniper.cs" />
       <File FileName="Assets/Prefabs/enemyGenerator.cs" />
-      <File FileName="Assets/Scripts/Enemy/NavMeshDelayer.cs" Line="6" Column="40" />
-      <File FileName="Assets/Scripts/Enviroment/cabin/PlayerCabinTrigger.cs" Line="1" Column="1" />
+      <File FileName="Assets/Scripts/Enemy/NavMeshDelayer.cs" />
+      <File FileName="Assets/Scripts/Enviroment/cabin/PlayerCabinTrigger.cs" />
+      <File FileName="Assets/Plugins/Game Buffs/Free Stylized Textures/README.txt" />
+      <File FileName="Assets/Scripts/game/CoinManager1.cs" />
     </Files>
     <Pads>
       <Pad Id="ProjectPad">
         <State name="__root__">
           <Node name="EotLR" expanded="True">
             <Node name="Assets" expanded="True">
+              <Node name="Plugins" expanded="True">
+                <Node name="Game Buffs" expanded="True">
+                  <Node name="Free Stylized Textures" expanded="True" />
+                </Node>
+              </Node>
               <Node name="Scripts" expanded="True">
-                <Node name="Enemy" expanded="True">
-                  <Node name="Boss" expanded="True">
-                    <Node name="dragon" expanded="True" />
-                    <Node name="giant" expanded="True" />
-                    <Node name="sorcerer" expanded="True" />
-                    <Node name="warriorBeast" expanded="True" />
-                  </Node>
+                <Node name="game" expanded="True">
+                  <Node name="CoinManager1.cs" selected="True" />
                 </Node>
-                <Node name="Enviroment" expanded="True">
-                  <Node name="cabin" expanded="True">
-                    <Node name="PlayerCabinTrigger.cs" selected="True" />
-                  </Node>
-                </Node>
-                <Node name="Inventory" expanded="True" />
-                <Node name="menus" expanded="True" />
-                <Node name="Player" expanded="True">
-                  <Node name="weapons" expanded="True" />
-                </Node>
+                <Node name="Player" expanded="True" />
                 <Node name="Shop" expanded="True" />
               </Node>
             </Node>

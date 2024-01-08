@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     public  float freezeProtection = 100;
     public float hunger;
     public bool interacting;
+    public CoinManager coinManager;
    
     public bool isSlowed;
     public bool inGameScene = true;
@@ -86,8 +87,14 @@ public class Player : MonoBehaviour
 
     private void Die()
     {
-       
-        SceneManager.LoadScene("DeathScene");
+        Transform respawnPoint = CheckpointManager.GetRespawnPoint();
+        //Debug.Log(respawnPoint);
+        if (respawnPoint != null)
+        {
+            transform.position = respawnPoint.position;
+            transform.rotation = respawnPoint.rotation;
+        }
+        else{SceneManager.LoadScene("DeathScene");}
         resetPlayer();
     }
 
