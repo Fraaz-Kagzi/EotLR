@@ -5,10 +5,9 @@ Game is called Echoes of the Lost Realm. It is an arena based survival game , wh
 This game was created using C# on Unity and uses assets from the unity asset store as listed below. <br />
 
 ## Gameplay video
-https://youtu.be/1fdGHk4rdhM
+https://youtu.be/1fdGHk4rdhM <br />
 
 
-<br />
 ## Assets
 External assets reused in your project
 
