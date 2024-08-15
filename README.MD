@@ -1,5 +1,15 @@
-Read Me File Group A Echoes of the lost realm
+#Echoes of the Lost Realm
+## Info
+Queen Mary University of London Computer Science 3rd Year Coursework for module Multi-Platform Game Development <br />
+Game is called Echoes of the Lost Realm. It is an arena based survival game , where the user has to survive by finding food, and defending himself from the different arena based mobs. <br />
+This game was created using C# on Unity and uses assets from the unity asset store as listed below. <br />
 
+##Gameplay video
+https://youtu.be/1fdGHk4rdhM
+
+
+<br />
+## Assets
 External assets reused in your project
 
 We have written it in the following type below
